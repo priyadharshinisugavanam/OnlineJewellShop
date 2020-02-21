@@ -1,0 +1,24 @@
+﻿@model OnlineJewellShop.Entity.UserEntity
+
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Login</h2>
+
+<table cellpadding="10">
+    <tr><td>@Html.Label("User Id")</td>
+    <td>
+        @Html.TextBoxFor(Model=>Model.userID)
+    </td>
+    </tr>
+    <tr>
+        <td>@Html.Label("Password")</td>
+    </tr>
+    <tr><td><input type="submit" runat="server" /></td></tr>
+    
+</table>
+@{ 
+    Html.RenderAction("Partial");
+}
+
