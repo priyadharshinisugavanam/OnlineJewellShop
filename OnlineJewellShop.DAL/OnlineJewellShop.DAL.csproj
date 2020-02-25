@@ -5,11 +5,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{ECEAC8AB-E80E-4FE7-B842-7E3A930396DE}</ProjectGuid>
+    <ProjectGuid>{78DFC5B5-982A-4476-A14B-DEEFC3B2B397}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>OnlineJewellShop.Entity</RootNamespace>
-    <AssemblyName>OnlineJewellShop.Entity</AssemblyName>
+    <RootNamespace>OnlineJewellShop.DAL</RootNamespace>
+    <AssemblyName>OnlineJewellShop.DAL</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -42,6 +42,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -51,8 +52,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="UserDetails.cs" />
+    <Compile Include="UserRepositary.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OnlineJewellShop.Entity\OnlineJewellShop.Entity.csproj">
+      <Project>{ECEAC8AB-E80E-4FE7-B842-7E3A930396DE}</Project>
+      <Name>OnlineJewellShop.Entity</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

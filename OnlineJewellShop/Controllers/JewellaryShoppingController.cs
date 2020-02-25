@@ -1,6 +1,7 @@
 ﻿using OnlineJewellShop.Entity;
 using System;
 using System.Collections.Generic;
+using OnlineJewellShop.DAL;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -9,6 +10,8 @@ namespace OnlineJewellShop.Controllers
 {
     public class JewellaryShoppingController : Controller
     {
+        public object UserRepositary { get; private set; }
+
         // GET: JewellaryShopping
         public ActionResult Index()
         {
@@ -20,7 +23,7 @@ namespace OnlineJewellShop.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult SignUp(UserEntity userEntity)
+        public ActionResult SignUp(UserDetails userEntity)
         {
             if (ModelState.IsValid)
             {
@@ -34,7 +37,15 @@ namespace OnlineJewellShop.Controllers
         }
         public ActionResult Partial()
         {
+
             return PartialView();
+        }
+        public ActionResult List()
+        {
+            UserRepositary userRepositary = new UserRepositary();
+            
+            IEnumerable<UserDetails> users = userRepositary.Lists();
+            return View();
         }
     }
     
