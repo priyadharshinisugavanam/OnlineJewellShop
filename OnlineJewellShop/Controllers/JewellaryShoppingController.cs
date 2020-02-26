@@ -1,9 +1,8 @@
 ﻿using OnlineJewellShop.Entity;
 using System;
 using System.Collections.Generic;
+using OnlineJewellShop.BL;
 using OnlineJewellShop.DAL;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace OnlineJewellShop.Controllers
@@ -27,9 +26,12 @@ namespace OnlineJewellShop.Controllers
         {
             if (ModelState.IsValid)
             {
+                User principal = new User();
+                principal.SignUp(userEntity);                
                 return RedirectToAction("Login");
+
             }
-            return View();
+            return RedirectToAction("Index");
         }
         public ActionResult Login()
         {
@@ -43,8 +45,7 @@ namespace OnlineJewellShop.Controllers
         public ActionResult List()
         {
             UserRepositary userRepositary = new UserRepositary();
-            
-            IEnumerable<UserDetails> users = userRepositary.Lists();
+           IEnumerable<UserDetails> users = userRepositary.Lists();
             return View();
         }
     }

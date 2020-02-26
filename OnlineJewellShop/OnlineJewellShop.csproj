@@ -160,6 +160,10 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\OnlineJewellShop.BL\OnlineJewellShop.BL.csproj">
+      <Project>{6d64fa6e-2320-42fb-9d12-f2f9364c282d}</Project>
+      <Name>OnlineJewellShop.BL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OnlineJewellShop.DAL\OnlineJewellShop.DAL.csproj">
       <Project>{78dfc5b5-982a-4476-a14b-deefc3b2b397}</Project>
       <Name>OnlineJewellShop.DAL</Name>

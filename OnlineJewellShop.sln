@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineJewellShop.Entity", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineJewellShop.DAL", "OnlineJewellShop.DAL\OnlineJewellShop.DAL.csproj", "{78DFC5B5-982A-4476-A14B-DEEFC3B2B397}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineJewellShop.BL", "OnlineJewellShop.BL\OnlineJewellShop.BL.csproj", "{6D64FA6E-2320-42FB-9D12-F2F9364C282D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{78DFC5B5-982A-4476-A14B-DEEFC3B2B397}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{78DFC5B5-982A-4476-A14B-DEEFC3B2B397}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{78DFC5B5-982A-4476-A14B-DEEFC3B2B397}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D64FA6E-2320-42FB-9D12-F2F9364C282D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D64FA6E-2320-42FB-9D12-F2F9364C282D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D64FA6E-2320-42FB-9D12-F2F9364C282D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D64FA6E-2320-42FB-9D12-F2F9364C282D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
