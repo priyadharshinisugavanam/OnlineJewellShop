@@ -1,60 +1,63 @@
-﻿@model OnlineJewellShop.Entity.UserDetails
+﻿@model OnlineJewellShop.Models.UserEntityModel
 
 @{
     ViewBag.Title = "SignUp";
 }
 
 <h2>SignUp</h2>
+
+
 @using (Html.BeginForm("SignUp", "JewellaryShopping", FormMethod.Post))
 {
-<table cellpadding="10">
-    <tr>
-        <td>@Html.Label("User Id")</td>
-        <td>
-            @Html.TextBoxFor(model => model.userID)
-        @Html.ValidationMessageFor(model => model.userID)
-    </td>
+    
+    <table cellpadding="10">
+        <tr>
+            <td>@Html.Label("User Id")</td>
+            <td>
+                @Html.TextBoxFor(model => model.userID)
+                @Html.ValidationMessageFor(model => model.userID,"",new { @class = "danger" })
+            </td>
 
-</tr>
-<tr>
-    <td>@Html.Label("password")</td>
-    <td>
-        @Html.TextBoxFor(model => model.password)
-        @Html.ValidationMessageFor(model => model.password)
-    </td>
-</tr>
-<tr>
-    <td>@Html.Label("Conform password")</td>
-    <td>
-        @Html.TextBoxFor(model => model.conformPassword)
-        @Html.ValidationMessageFor(model => model.conformPassword)
-    </td>
-</tr>
-<tr>
-    <td>@Html.Label("Mail Id")</td>
-    <td>
-        @Html.TextBoxFor(model => model.mailId)
-        @Html.ValidationMessageFor(model => model.mailId)
-    </td>
-</tr>
-<tr>
-    <td>@Html.Label("Phone number")</td>
-    <td>
-        @Html.TextBoxFor(model => model.phoneNumber)
-        @Html.ValidationMessageFor(model => model.phoneNumber)
-    </td>
-</tr>
-<tr>
-    <td><input type="submit" runat="server" /></td>
-</tr>
-</table>
-<div>
-    @{ 
-        Html.RenderPartial("RenderPartial");
-   }
-    
+        </tr>
+        <tr>
+            <td>@Html.Label("password")</td>
+            <td>
+                @Html.TextBoxFor(model => model.password)
+                @Html.ValidationMessageFor(model => model.password,"",new { @class = "danger" })
+            </td>
+        </tr>
+        <tr>
+            <td>@Html.Label("Conform password")</td>
+            <td>
+                @Html.TextBoxFor(model => model.conformPassword)
+                @Html.ValidationMessageFor(model => model.conformPassword,"",new { @class = "danger" })
+            </td>
+        </tr>
+        <tr>
+            <td>@Html.Label("Mail Id")</td>
+            <td>
+                @Html.TextBoxFor(model => model.mailId)
+                @Html.ValidationMessageFor(model => model.mailId,"",new { @class = "danger" })
+            </td>
+        </tr>
+        <tr>
+            <td>@Html.Label("Phone number")</td>
+            <td>
+                @Html.TextBoxFor(model => model.phoneNumber)
+                @Html.ValidationMessageFor(model => model.phoneNumber,"",new { @class = "danger" })
+            </td>
+        </tr>
+        <tr>
+            <td><input type="submit" runat="server" /></td>
+        </tr>
+    </table>
+    <div>
+        @{
+            Html.RenderPartial("RenderPartial");
+        }
+
         @Html.Partial("Partial")
-    
-</div>
+
+    </div>
 
 }

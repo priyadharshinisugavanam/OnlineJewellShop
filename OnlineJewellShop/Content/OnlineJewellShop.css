@@ -1,0 +1,17 @@
+﻿body {
+    background-image:url('/Images/moon.jpg');
+    color: black;
+    image-rendering: pixelated;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    font-family: sans-serif;
+    color:white
+}
+.danger {
+    color: red;
+}
+.LinkColor{
+    color:deepskyblue
+}

@@ -5,6 +5,11 @@ using System.Data.Entity;
 
 namespace OnlineJewellShop.Entity
 {
+    public enum RoleOfMembers
+    {
+        User,
+        Admin
+    }
     public class UserDetails
     {
         [Required]
@@ -22,15 +27,15 @@ namespace OnlineJewellShop.Entity
         //[RegularExpression(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$",ErrorMessage ="Inval  id Mail Id")]
         public string mailId { get; set; }
         //[Required]
-        private string role="User";
+       
         public string Role
         {
             get
             {
-                return role;
+                return RoleOfMembers.User.ToString();
             }
             set {
-                value = role;
+                value = RoleOfMembers.User.ToString();
             }
         }
 
