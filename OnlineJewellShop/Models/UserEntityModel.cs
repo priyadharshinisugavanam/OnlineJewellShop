@@ -24,7 +24,7 @@ namespace OnlineJewellShop.Models
             public string conformPassword { get; set; }
             [Required]
             [DataType(DataType.EmailAddress)]
-            [RegularExpression(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$",ErrorMessage ="Inval  id Mail Id")]
+            [RegularExpression(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$",ErrorMessage ="Invalid Mail Id")]
             public string mailId { get; set; }
             [Required]
             public string Role

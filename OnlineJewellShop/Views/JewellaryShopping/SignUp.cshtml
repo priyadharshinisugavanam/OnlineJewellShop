@@ -48,7 +48,11 @@
             </td>
         </tr>
         <tr>
-            <td><input type="submit" runat="server" /></td>
+
+            <td>
+                <input type="submit" runat="server" />
+                @Html.AntiForgeryToken()
+            </td>
         </tr>
     </table>
     <div>

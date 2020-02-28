@@ -14,5 +14,9 @@ namespace OnlineJewellShop.BL
         {
           repositary.AddUser(user);
         }
+        public string Login(UserDetails user)
+        {
+            return repositary.Login(user);
+        }
     }
 }

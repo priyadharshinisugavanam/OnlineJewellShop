@@ -30,13 +30,7 @@ namespace OnlineJewellShop.Entity
        
         public string Role
         {
-            get
-            {
-                return RoleOfMembers.User.ToString();
-            }
-            set {
-                value = RoleOfMembers.User.ToString();
-            }
+            get;set;
         }
 
             [Required]
@@ -66,15 +60,7 @@ namespace OnlineJewellShop.Entity
 
         }
     }
-    public class DbConnect : DbContext
-    {
-        public DbSet<UserDetails> Data { get; set; }
-        public DbConnect() : base("DBConnection")
-        {
-
-        }
-
-    }
+   
 }
 
 

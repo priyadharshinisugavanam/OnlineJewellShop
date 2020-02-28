@@ -1,25 +1,28 @@
-﻿@model OnlineJewellShop.Models.UserEntityModel
+﻿@model OnlineJewellShop.Models.LoginModel
 
 @{
     ViewBag.Title = "Login";
 }
 
 <h2>Login</h2>
-<table cellpadding="10">
-    <tr>
-        <td>@Html.Label("User Id")</td>
-        <td>
-            @Html.TextBoxFor(Model => Model.userID)
-        </td>
-    </tr>
-    <tr>
-        <td>@Html.Label("Password")</td>
-        <td>@Html.TextBoxFor(Model=>Model.password)</td>
-    </tr>
-    <tr><td><input type="submit" runat="server" /></td></tr>
+@using (Html.BeginForm("Login", "JewellaryShopping", FormMethod.Post))
+{
+    <table cellpadding="10">
+        <tr>
+            <td>@Html.Label("User Id")</td>
+            <td>
+                @Html.TextBoxFor(Model => Model.userID ,new { @id = "UserId" })
+                @Html.ValidationMessageFor(model => model.userID)
+            </td>
+        </tr>
+        <tr>
+            <td>@Html.Label("Password")</td>
+            <td>@Html.TextBoxFor(Model => Model.password,new { @id = "password" }) @Html.ValidationMessageFor(Model => Model.password)</td>
+           
+        </tr>
+        <tr><td><input type="submit" runat="server" /></td></tr>
 
-</table>
-@{
-    Html.RenderAction("Partial");
+    </table>
 }
+
 

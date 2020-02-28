@@ -140,6 +140,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\UserEntityModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -153,8 +154,8 @@
     <Content Include="Views\JewellaryShopping\Index.cshtml" />
     <Content Include="Views\JewellaryShopping\RenderPartial.cshtml" />
     <Content Include="Views\JewellaryShopping\List.cshtml" />
-    <Content Include="Views\JewellaryShopping\Login.cshtml" />
     <Content Include="Views\JewellaryShopping\SignUp.cshtml" />
+    <Content Include="Views\JewellaryShopping\Login.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

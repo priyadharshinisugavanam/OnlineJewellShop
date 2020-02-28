@@ -11,6 +11,7 @@ namespace OnlineJewellShop.Controllers
 {
     public class JewellaryShoppingController : Controller
     {
+        UserDetails userDetails = new UserDetails();
         public object UserRepositary { get; private set; }
 
         // GET: JewellaryShopping
@@ -24,9 +25,9 @@ namespace OnlineJewellShop.Controllers
             return View();
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult SignUp(UserEntityModel userEntity)
         {
-            UserDetails userDetails = new UserDetails();
             if (ModelState.IsValid)
             {
                 userDetails.userID = userEntity.userID;
@@ -34,7 +35,7 @@ namespace OnlineJewellShop.Controllers
                 userDetails.phoneNumber = userEntity.phoneNumber;
                 userDetails.conformPassword = userEntity.conformPassword;
                 userDetails.mailId = userEntity.mailId;
-                userDetails.Role = userEntity.Role;
+                userDetails.Role = "User";
                 User principal = new User();
                 principal.SignUp(userDetails);                
                 return RedirectToAction("Login");
@@ -42,8 +43,29 @@ namespace OnlineJewellShop.Controllers
             }
             return View();
         }
+        [HttpGet]
         public ActionResult Login()
         {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Login(LoginModel loginModel)
+        {
+            if(ModelState.IsValid)
+            {
+                User user = new User();
+                userDetails.userID = loginModel.userID;
+                userDetails.password = loginModel.password;
+                string role = user.Login(userDetails);
+                if (role=="User")
+                {
+                    return RedirectToAction("Index");
+                }
+                else if(role=="Admin")
+                {
+                    return RedirectToAction("SignUp");
+                }
+            }
             return View();
         }
         public ActionResult Partial()
