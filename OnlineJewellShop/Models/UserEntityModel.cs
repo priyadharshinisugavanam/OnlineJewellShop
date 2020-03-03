@@ -15,17 +15,17 @@ namespace OnlineJewellShop.Models
     public class UserEntityModel
     {
             [Required]
-            public string userID { get; set; }
+            public string UserID { get; set; }
             [Required]
             [DataType(DataType.Password,ErrorMessage ="invalid")]
             [RegularExpression(@"^(?=.{8,})(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$",ErrorMessage ="Invalid Password")]
-            public string password { get; set; }
+            public string Password { get; set; }
             [Required]
-            public string conformPassword { get; set; }
+            public string ConformPassword { get; set; }
             [Required]
             [DataType(DataType.EmailAddress)]
             [RegularExpression(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$",ErrorMessage ="Invalid Mail Id")]
-            public string mailId { get; set; }
+            public string MailId { get; set; }
             [Required]
             public string Role
             {
@@ -42,13 +42,13 @@ namespace OnlineJewellShop.Models
             [Required]
             [DataType(DataType.PhoneNumber)]
             [RegularExpression(@"^[6789]\d{9}$",ErrorMessage ="invalid phone number")]
-            public long phoneNumber { get; set; }
+            public long PhoneNumber { get; set; }
             public UserEntityModel(string userID, string password, long phoneNumber, string mailId)
             {
-                this.userID = userID;
-                this.password = password;
-                this.mailId = mailId;
-                this.phoneNumber = phoneNumber;
+                this.UserID = userID;
+                this.Password = password;
+                this.MailId = mailId;
+                this.PhoneNumber = phoneNumber;
 
             }
             

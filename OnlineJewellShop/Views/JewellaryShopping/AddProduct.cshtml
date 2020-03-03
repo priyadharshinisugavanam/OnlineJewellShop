@@ -1,0 +1,46 @@
+﻿@model OnlineJewellShop.Models.ProductModel
+
+@{
+    ViewBag.Title = "AddProduct";
+}
+
+<h2>Add Product</h2>
+
+
+@using (Html.BeginForm("AddProduct", "JewellaryShopping", FormMethod.Post))
+{
+
+    <table cellpadding="10">
+        <tr>
+            <td>@Html.Label("Product Id")</td>
+            <td>
+                @Html.TextBoxFor(model => model.ProductNumber)
+                @Html.ValidationMessageFor(model => model.ProductNumber, "", new { @class = "danger" })
+            </td>
+
+        </tr>
+        <tr>
+            <td>@Html.Label("Product Name")</td>
+            <td>
+                @Html.TextBoxFor(model => model.ProductName)
+                @Html.ValidationMessageFor(model => model.ProductName, "", new { @class = "danger" })
+            </td>
+        </tr>
+        <tr>
+            <td>@Html.Label("Product Rate")</td>
+            <td>
+                @Html.TextBoxFor(model => model.ProductRate)
+                @Html.ValidationMessageFor(model => model.ProductRate, "", new { @class = "danger" })
+            </td>
+            </tr>
+        <tr>
+            <td>
+                <input type="submit" runat="server" />
+                @Html.AntiForgeryToken()
+            </td>
+        </tr>
+    </table>
+   
+
+}
+

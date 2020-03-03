@@ -11,13 +11,13 @@
         <tr>
             <td>@Html.Label("User Id")</td>
             <td>
-                @Html.TextBoxFor(Model => Model.userID ,new { @id = "UserId" })
-                @Html.ValidationMessageFor(model => model.userID)
+                @Html.TextBoxFor(Model => Model.UserID ,new { @id = "UserId" })
+                @Html.ValidationMessageFor(model => model.UserID)
             </td>
         </tr>
         <tr>
             <td>@Html.Label("Password")</td>
-            <td>@Html.TextBoxFor(Model => Model.password,new { @id = "password" }) @Html.ValidationMessageFor(Model => Model.password)</td>
+            <td>@Html.TextBoxFor(Model => Model.Password,new { @id = "password" }) @Html.ValidationMessageFor(Model => Model.Password)</td>
            
         </tr>
         <tr><td><input type="submit" runat="server" /></td></tr>

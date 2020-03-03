@@ -7,9 +7,13 @@
     <title>@ViewBag.Title</title>
 </head>
 <body>
-    <div>  
-        <h1>Sri Mathre Jewellers</h1>
-        @Html.ActionLink("Sign Up", "SignUp", "JewellaryShopping","",new { @class = "LinkColor" })
+    <div>
+        <h1 style="text-align:center">Sri Mathre Jewellers</h1>
+        <div style="text-align:right">
+            @Html.ActionLink("Sign Up", "SignUp", "JewellaryShopping", " ", new { @class = "LinkColor" })
+            @Html.ActionLink("Login", "Login", "JewellaryShopping", " ", new { @class = "LinkColor" })
+        </div>
+        
         @RenderBody()
     </div>
 </body>

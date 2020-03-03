@@ -1,0 +1,39 @@
+﻿@model IEnumerable<OnlineJewellShop.Entity.Product>
+
+@{
+    ViewBag.Title = "ViewProduct";
+}
+
+<h2>View Product</h2>
+
+@Html.ActionLink("Add Product", "AddProduct",new { @class = "LinkColor678"})
+
+<table border="1">
+    <tr>
+        <th>Product Number</th>
+        <th>Product Name</th>
+        <th>Product Rate</th>
+    </tr>
+
+    @foreach (OnlineJewellShop.Entity.Product product in Model)
+    {
+<tr>
+    <td>
+        @product.ProductNumber
+    </td>
+    <td>
+        @product.ProductName
+    </td>
+    <td>
+        @product.ProductRate
+
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "EditProduct", new {id=product.ProductNumber,@class="LinkColor"})
+        @Html.ActionLink("Delete", "DeleteProduct", new {id=product.ProductNumber,@class="LinkColor" })
+    </td>
+</tr>
+
+
+    }
+</table>

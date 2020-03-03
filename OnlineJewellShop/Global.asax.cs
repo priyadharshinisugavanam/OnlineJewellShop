@@ -1,3 +1,4 @@
+using OnlineJewellShop.App_Start;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,8 @@ namespace OnlineJewellShop
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            Mapping.MappingUserDatabase();
+            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
         }
     }
 }

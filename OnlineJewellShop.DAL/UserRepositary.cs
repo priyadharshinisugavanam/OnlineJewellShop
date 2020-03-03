@@ -32,29 +32,33 @@ namespace OnlineJewellShop.DAL
     {
         public  List<UserDetails> Lists()
         {
-            DbConnect dbConnect = new DbConnect();
-            return dbConnect.Data.ToList();
+            using (DbConnect dbConnect = new DbConnect())
+            {
+                return dbConnect.Data.ToList();
+            }
         }
         public void AddUser(UserDetails user)
         {
-            DbConnect dbConnect = new DbConnect();
-            dbConnect.Data.Add(user);
-            dbConnect.SaveChanges();
+            using (DbConnect dbConnect = new DbConnect())
+            {
+                dbConnect.Data.Add(user);
+                dbConnect.SaveChanges();
+            }
         }
         public string Login(UserDetails user)
-        {
-            DbConnect dbConnect = new DbConnect();
-            List<UserDetails> loginList= dbConnect.Data.ToList();
-            foreach(var value in loginList)
+        { 
+            using (DbConnect dbConnect = new DbConnect())
             {
-                if(user.userID==value.userID&&user.password==value.password )
+                List<UserDetails> loginList = dbConnect.Data.ToList();
+                foreach (var value in loginList)
                 {
-                    
-                    return value.Role;
+                    if (user.UserID == value.UserID && user.Password == value.Password)
+                    {
+                        return value.Role;
+                    }
                 }
-               
+                return "not";
             }
-            return "not";
         }
 
 

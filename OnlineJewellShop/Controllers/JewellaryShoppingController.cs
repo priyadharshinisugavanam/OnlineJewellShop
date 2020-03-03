@@ -9,11 +9,11 @@ using AutoMapper;
 
 namespace OnlineJewellShop.Controllers
 {
+    //[HandleError ]
     public class JewellaryShoppingController : Controller
     {
-        UserDetails userDetails = new UserDetails();
-        public object UserRepositary { get; private set; }
-
+       
+        
         // GET: JewellaryShopping
         public ActionResult Index()
         {
@@ -30,14 +30,16 @@ namespace OnlineJewellShop.Controllers
         {
             if (ModelState.IsValid)
             {
-                userDetails.userID = userEntity.userID;
-                userDetails.password = userEntity.password;
-                userDetails.phoneNumber = userEntity.phoneNumber;
-                userDetails.conformPassword = userEntity.conformPassword;
-                userDetails.mailId = userEntity.mailId;
-                userDetails.Role = "User";
+                var user = AutoMapper.Mapper.Map<UserEntityModel, UserDetails>(userEntity);
+                //UserDetails userDetails = new UserDetails();
+                //userDetails.UserID = userEntity.UserID;
+                //userDetails.Password = userEntity.Password; 
+                //userDetails.phoneNumber = userEntity.PhoneNumber;
+                //userDetails.ConformPassword = userEntity.ConformPassword;
+                //userDetails.MailId = userEntity.MailId;
+
                 User principal = new User();
-                principal.SignUp(userDetails);                
+                principal.SignUp(user);
                 return RedirectToAction("Login");
 
             }
@@ -51,19 +53,25 @@ namespace OnlineJewellShop.Controllers
         [HttpPost]
         public ActionResult Login(LoginModel loginModel)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
+                UserDetails userDetails = new UserDetails();
                 User user = new User();
-                userDetails.userID = loginModel.userID;
-                userDetails.password = loginModel.password;
-                string role = user.Login(userDetails);
-                if (role=="User")
+                var login = AutoMapper.Mapper.Map<LoginModel, UserDetails>(loginModel);
+                //userDetails.UserID = loginModel.UserID;
+                //userDetails.Password = loginModel.Password;
+                string role = user.Login(login);
+                if (role == "User")
                 {
                     return RedirectToAction("Index");
                 }
-                else if(role=="Admin")
+                else if (role == "Admin")
                 {
-                    return RedirectToAction("SignUp");
+                    return RedirectToAction("AdminOperation");
+                }
+                else
+                {
+                    return RedirectToAction("NotFound", "Error");
                 }
             }
             return View();
@@ -76,9 +84,97 @@ namespace OnlineJewellShop.Controllers
         public ActionResult List()
         {
             UserRepositary userRepositary = new UserRepositary();
-           IEnumerable<UserDetails> users = userRepositary.Lists();
+            IEnumerable<UserDetails> users = userRepositary.Lists();
             return View();
         }
+        public ActionResult ProductList()
+        {
+            ProductRepositary productRepositary = new ProductRepositary();
+            IEnumerable<Product> users = productRepositary.List();
+            return View();
+        }
+        public ActionResult AdminAction()
+        {
+            return View();
+        }
+        [HttpGet]
+        public ActionResult AddProduct()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult AddProduct(ProductModel productModel)
+        {
+            Product product = new Product();
+            var productMap = AutoMapper.Mapper.Map<ProductModel, Product>(productModel);
+            ProductDetails productDetails = new ProductDetails();
+            productDetails.AddProduct(productMap);
+            return RedirectToAction("ViewProduct");
+
+        }
+        public ActionResult ViewProduct()
+        {
+            ProductDetails productDetails = new ProductDetails();
+            IEnumerable<Product> products = productDetails.DisplayProduct();
+            return View(products);
+        }
+        public ActionResult AdminOperation()
+        {
+            return View();
+        }
+        [HttpGet]
+        public ActionResult EditProduct(int id)
+        {
+            try
+            {
+                ProductRepositary productRepositary = new ProductRepositary();
+                Product product = productRepositary.GetProduct(id);
+                return View(product);
+            }
+            catch
+            {
+                throw new Exception("Somthing Wrong");
+            }
+        }
+        [HttpPost]
+        public ActionResult EditProduct(ProductModel products)
+        {
+            try
+            {
+                Product product = new Product();
+                var productMap = AutoMapper.Mapper.Map<ProductModel, Product>(products);
+                ProductDetails productDetails = new ProductDetails();
+                productDetails.UpdateProduct(productMap);
+                return RedirectToAction("ViewProduct");
+            }
+            catch
+            {
+                throw new Exception("Something wrong");
+            }
+
+        }
+        [HttpGet]
+        public ActionResult DeleteProduct(int id)
+        {
+            ProductRepositary productRepositary = new ProductRepositary();
+            Product product = productRepositary.GetProduct(id);
+            return View(product);
+        }
+        [HttpPost]
+        public ActionResult DeleteProduct(ProductModel products)
+        {
+            Product product = new Product();
+            var productMap = AutoMapper.Mapper.Map<ProductModel, Product>(products);
+            ProductDetails productDetails = new ProductDetails();
+            productDetails.DeleteProduct(productMap);
+            return RedirectToAction("ViewProduct");
+
+        }
+        public ActionResult Error()
+        {
+            return View();
+        }
+    
     }
     
 }
