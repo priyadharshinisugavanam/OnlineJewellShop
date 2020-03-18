@@ -1,0 +1,38 @@
+﻿@model OnlineJewellShop.Entity.Product
+@{
+    ViewBag.Title = "EditProduct";
+}
+
+<h2>EditProduct</h2>
+
+
+@using (Html.BeginForm("EditProduct", "Admin"))
+{
+    @Html.HiddenFor(Model => Model.ProductId)
+    <table>
+
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.ProductName)
+            </td>
+            <td>@Html.EditorFor(Model => Model.ProductName)</td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(Model => Model.ProductRate)
+            </td>
+            <td>
+                @Html.EditorFor(Model => Model.ProductRate)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(Model => Model.ProductCatogeryId)
+            </td>
+            <td>@Html.DropDownListFor(Model => Model.ProductCatogeryId, (IEnumerable<SelectListItem>)ViewBag.ProductCategories, " select Category")</td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="update" runat="server" /></td>
+        </tr>
+    </table>
+}

@@ -1,0 +1,24 @@
+﻿@model OnlineJewellShop.Entity.ProductCatogeries
+@{
+    ViewBag.Title = "DeleteProduct";
+}
+
+<h2>DeleteProduct</h2>
+
+@using (Html.BeginForm("DeleteProductCategory", "Admin", FormMethod.Post))
+{
+    <table>
+        @Html.HiddenFor(Model => Model.ProductCatogeryId)
+        <tr>
+            <td>
+                @Html.LabelFor(Model => Model.productCatogeryName)
+            </td>
+            <td>
+                @Html.ValueFor(Model => Model.productCatogeryName)
+            </td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Confirm Delete" /></td>
+        </tr>
+    </table>
+}

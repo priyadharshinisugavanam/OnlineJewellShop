@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
@@ -24,6 +25,7 @@ namespace OnlineJewellShop.Models
             public string ConformPassword { get; set; }
             [Required]
             [DataType(DataType.EmailAddress)]
+            
             [RegularExpression(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$",ErrorMessage ="Invalid Mail Id")]
             public string MailId { get; set; }
             [Required]

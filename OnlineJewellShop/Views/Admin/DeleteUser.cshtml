@@ -1,0 +1,42 @@
+﻿@model OnlineJewellShop.Entity.User
+@{
+    ViewBag.Title = "DeleteUser";
+}
+
+<h2>DeleteUser</h2>
+
+
+@using (Html.BeginForm("DeleteUser", "Admin", FormMethod.Post))
+{
+    @Html.HiddenFor(Model => Model.UserID)
+    <table>
+        <tr>
+            <td>
+                @Html.LabelFor(Model => Model.MailId)
+            </td>
+            <td>
+                @Html.ValueFor(Model => Model.MailId)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(Model => Model.PhoneNumber)
+            </td>
+            <td>
+                @Html.ValueFor(Model => Model.PhoneNumber)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(Model => Model.Role)
+            </td>
+            <td>
+                @Html.ValueFor(Model => Model.Role)
+            </td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Confirm Delete" /></td>
+        </tr>
+    </table>
+}
+

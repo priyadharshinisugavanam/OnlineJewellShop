@@ -1,0 +1,31 @@
+﻿@model OnlineJewellShop.Models.ProductCatogeryModel
+
+@{
+    ViewBag.Title = "AddProductCategory";
+}
+
+<h2>Add Product Category</h2>
+
+@using (Html.BeginForm("AddProductCategory", "Admin", FormMethod.Post))
+{
+    <table cellpadding="10">
+        <tr>
+            <td>@Html.Label("Category Name")</td>
+            <td>
+                @Html.TextBoxFor(model => model.productCatogeryName)
+                @Html.ValidationMessageFor(model => model.productCatogeryName, "", new { @class = "danger" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" runat="server" />
+                @Html.AntiForgeryToken()
+            </td>
+        </tr>
+    </table>
+
+
+}
+
+
+

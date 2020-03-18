@@ -2,7 +2,7 @@
 
 <html>
 <head>
-    <link rel="stylesheet" href="~/Content/OnlineJewellShop.css" type="text/css"/>
+    <link rel="stylesheet" href="~/Content/OnlineJewellShop.css" type="text/css" />
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
 </head>
@@ -10,10 +10,32 @@
     <div>
         <h1 style="text-align:center">Sri Mathre Jewellers</h1>
         <div style="text-align:right">
-            @Html.ActionLink("Sign Up", "SignUp", "JewellaryShopping", " ", new { @class = "LinkColor" })
-            @Html.ActionLink("Login", "Login", "JewellaryShopping", " ", new { @class = "LinkColor" })
+            @Html.ActionLink("SignUp", "SignUp", "Account", " ", new { @class = "LinkColor" })
+
+            @if (HttpContext.Current.User.Identity.IsAuthenticated)
+            {
+                @Html.ActionLink("Logout", "LogOff", "Account", " ", new { @class = "LinkColor" })
+            }
+            else
+            {
+                @Html.ActionLink("Login", "Login", "Account", " ", new { @class = "LinkColor" })
+            }
+            @Html.ActionLink("Home ", "Index", "Home", " ", new { @class = "Linkcolor" })
+
+            @if (HttpContext.Current.User.IsInRole("Admin"))
+            {
+
+                @Html.ActionLink("AddProduct ", "AddProduct", "Admin", " ", new { @class = "LinkColor" })
+                @Html.ActionLink("ViewProducts ", "ViewProduct", "Admin", " ", new { @class = "LinkColor" })
+                @Html.ActionLink("AddProductcategory ", "AddProductCategory", "Admin", " ", new { @class = "LinkColor" })  
+                @Html.ActionLink("ViewUser", "ViewUser", "Admin", "", new { @class = "LinkColor" })
+            }
+            @if (HttpContext.Current.User.IsInRole("User"))
+            {
+                @Html.ActionLink("Categories", "ViewProductCategory","User","", new { @class = "LinkColor" })
+            }
         </div>
-        
+
         @RenderBody()
     </div>
 </body>

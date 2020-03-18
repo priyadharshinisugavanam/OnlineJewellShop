@@ -1,0 +1,55 @@
+﻿@model OnlineJewellShop.Models.ProductModel
+
+@{
+    ViewBag.Title = "AddProduct";
+}
+
+
+<h2>Add Product</h2>
+
+
+@using (Html.BeginForm("AddProduct", "Admin", FormMethod.Post))
+{
+
+    <table>
+        <tr>
+            <td>
+                @Html.LabelFor(Model => Model.ProductName)
+
+            </td>
+            <td>
+                @Html.TextBoxFor(Model => Model.ProductName)
+                @Html.ValidationMessageFor(model => model.ProductName, "", new { @class = "danger" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.ProductRate)
+
+            </td>
+            <td>
+                @Html.TextBoxFor(Model => Model.ProductRate)
+                @Html.ValidationMessageFor(model => model.ProductRate, "", new { @class = "danger" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.ProductCatogeries)
+            </td>
+            <td>
+                @Html.DropDownListFor(model => model.ProductCatogeryId, (IEnumerable<SelectListItem>)ViewBag.ProductCategories, "select category")
+                @Html.ValidationMessageFor(model => model.ProductCatogeryId, "", new { @class = "danger" })
+            </td>
+        </tr>
+
+
+        <tr>
+            <td>
+
+                <input type="submit" />
+            </td>
+        </tr>
+    </table>
+
+}
+

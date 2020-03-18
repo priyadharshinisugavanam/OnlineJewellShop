@@ -1,0 +1,25 @@
+﻿@model OnlineJewellShop.Entity.ProductCatogeries
+@{
+    ViewBag.Title = "EditProduct";
+}
+
+<h2>EditProduct</h2>
+
+
+@using (Html.BeginForm("EditProductCategory", "Admin"))
+{
+    @Html.HiddenFor(Model => Model.ProductCatogeryId)
+
+    <table>
+
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.productCatogeryName)
+            </td>
+            <td>@Html.EditorFor(Model => Model.productCatogeryName)</td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="update" runat="server" /></td>
+        </tr>
+    </table>
+}

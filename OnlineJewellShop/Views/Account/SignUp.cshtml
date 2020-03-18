@@ -3,19 +3,18 @@
 @{
     ViewBag.Title = "SignUp";
 }
-
 <h2>SignUp</h2>
-
-
-@using (Html.BeginForm("SignUp", "JewellaryShopping", FormMethod.Post))
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+@using (Html.BeginForm("SignUp", "Account", FormMethod.Post))
 {
-    
     <table cellpadding="10">
         <tr>
             <td>@Html.Label("User Id")</td>
             <td>
                 @Html.TextBoxFor(model => model.UserID)
-                @Html.ValidationMessageFor(model => model.UserID,"",new { @class = "danger" })
+                @Html.ValidationMessageFor(model => model.UserID, "", new { @class = "danger" })
             </td>
 
         </tr>
@@ -23,28 +22,28 @@
             <td>@Html.Label("password")</td>
             <td>
                 @Html.TextBoxFor(model => model.Password)
-                @Html.ValidationMessageFor(model => model.Password,"",new { @class = "danger" })
+                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "danger" })
             </td>
         </tr>
         <tr>
             <td>@Html.Label("Conform password")</td>
             <td>
                 @Html.TextBoxFor(model => model.ConformPassword)
-                @Html.ValidationMessageFor(model => model.ConformPassword,"",new { @class = "danger" })
+                @Html.ValidationMessageFor(model => model.ConformPassword, "", new { @class = "danger" })
             </td>
         </tr>
         <tr>
             <td>@Html.Label("Mail Id")</td>
             <td>
                 @Html.TextBoxFor(model => model.MailId)
-                @Html.ValidationMessageFor(model => model.MailId,"",new { @class = "danger" })
+                @Html.ValidationMessageFor(model => model.MailId, "", new { @class = "danger" })
             </td>
         </tr>
         <tr>
             <td>@Html.Label("Phone number")</td>
             <td>
                 @Html.TextBoxFor(model => model.PhoneNumber)
-                @Html.ValidationMessageFor(model => model.PhoneNumber,"",new { @class = "danger" })
+                @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "danger" })
             </td>
         </tr>
         <tr>
@@ -55,13 +54,10 @@
             </td>
         </tr>
     </table>
-    <div>
-        @{
-            Html.RenderPartial("RenderPartial");
-        }
 
-        @Html.Partial("Partial")
 
-    </div>
+    @Html.Partial("Partial")
+
+
 
 }

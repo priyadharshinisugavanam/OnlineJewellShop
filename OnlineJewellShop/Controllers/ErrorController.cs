@@ -8,8 +8,18 @@ namespace OnlineJewellShop.Controllers
 {
     public class ErrorController : Controller
     {
-        // GET: Error
+        //not found exception
         public ActionResult NotFound()
+        {
+            return View();
+        }
+        //overall error
+        public ActionResult Error()
+        {
+            return View();
+        }
+        //if the mail id is not un
+        public ActionResult NotUnique()
         {
             return View();
         }

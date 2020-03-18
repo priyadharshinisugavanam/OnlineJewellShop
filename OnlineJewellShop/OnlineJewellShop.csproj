@@ -116,6 +116,7 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Images\maxresdefault.png" />
     <Content Include="Images\moon.jpg" />
     <Content Include="Images\perl.jpg" />
     <Content Include="Scripts\bootstrap.js" />
@@ -137,15 +138,17 @@
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\JewellaryShoppingController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Mapping.cs" />
     <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Models\ProductCatogeryModel.cs" />
     <Compile Include="Models\ProductModel.cs" />
     <Compile Include="Models\UserEntityModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -156,21 +159,26 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
-    <Content Include="Views\JewellaryShopping\Partial.cshtml" />
-    <Content Include="Views\JewellaryShopping\Index.cshtml" />
-    <Content Include="Views\JewellaryShopping\RenderPartial.cshtml" />
-    <Content Include="Views\JewellaryShopping\List.cshtml" />
-    <Content Include="Views\JewellaryShopping\SignUp.cshtml" />
-    <Content Include="Views\JewellaryShopping\Login.cshtml" />
-    <Content Include="Views\JewellaryShopping\ProductList.cshtml" />
-    <Content Include="Views\JewellaryShopping\AdminAction.cshtml" />
-    <Content Include="Views\JewellaryShopping\AddProduct.cshtml" />
-    <Content Include="Views\JewellaryShopping\ViewProduct.cshtml" />
-    <Content Include="Views\JewellaryShopping\AdminOperation.cshtml" />
-    <Content Include="Views\JewellaryShopping\EditProduct.cshtml" />
-    <Content Include="Views\JewellaryShopping\DeleteProduct.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Error\NotFound.cshtml" />
+    <Content Include="Views\Admin\AddProduct.cshtml" />
+    <Content Include="Views\Admin\ViewProduct.cshtml" />
+    <Content Include="Views\Admin\EditProduct.cshtml" />
+    <Content Include="Views\Admin\DeleteProduct.cshtml" />
+    <Content Include="Views\Admin\AddProductCategory.cshtml" />
+    <Content Include="Views\User\ViewProductCategory.cshtml" />
+    <Content Include="Views\User\ProductsDetail.cshtml" />
+    <Content Include="Views\User\UserOperation.cshtml" />
+    <Content Include="Views\Admin\ViewProductCategory.cshtml" />
+    <Content Include="Views\Admin\EditProductCategory.cshtml" />
+    <Content Include="Views\Admin\DeleteProductCategory.cshtml" />
+    <Content Include="Views\Admin\ViewUser.cshtml" />
+    <Content Include="Views\Admin\EditUser.cshtml" />
+    <Content Include="Views\Admin\DeleteUser.cshtml" />
+    <Content Include="Views\Error\NotUnique.cshtml" />
+    <Content Include="Views\Account\SignUp.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Partial.cshtml" />
+    <Content Include="Views\Error\Error.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -180,7 +188,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Admin\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OnlineJewellShop.BL\OnlineJewellShop.BL.csproj">

@@ -52,6 +52,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dbconnect.cs" />
+    <Compile Include="ProductCatogeryRepositary.cs" />
     <Compile Include="ProductRepositary.cs" />
     <Compile Include="UserRepositary.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

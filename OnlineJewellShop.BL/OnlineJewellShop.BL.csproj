@@ -51,8 +51,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ProductDetails.cs" />
-    <Compile Include="User.cs" />
+    <Compile Include="UserBL.cs" />
+    <Compile Include="ProductCategoryBL.cs" />
+    <Compile Include="ProductBL.cs" />
+    <Compile Include="AccountBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

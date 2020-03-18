@@ -1,0 +1,30 @@
+﻿@model  IEnumerable<OnlineJewellShop.Entity.Product>
+@{
+    ViewBag.Title = "ProductsDetail";
+}
+
+<h2>ProductsDetail</h2>
+@using (Html.BeginForm("ProductsDetail", "Admin", FormMethod.Post))
+{
+    <table border="1">
+        <tr>
+            <th>Product Name</th>
+            <th>Product Rate</th>
+        </tr>
+
+        @foreach (OnlineJewellShop.Entity.Product product in Model)
+        {
+            <tr>
+
+                <td>
+                    @product.ProductName
+                </td>
+                <td>
+                    @product.ProductRate
+
+                </td>
+            </tr>
+        }
+    </table>
+}
+

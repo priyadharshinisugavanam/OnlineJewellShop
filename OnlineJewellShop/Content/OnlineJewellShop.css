@@ -12,8 +12,15 @@
 .danger {
     color: red;
 }
-.LinkColor {
+.LinkColor{
     color: deepskyblue;
-    
+    text-decoration:none;
+}
+.LinkColors{
+    color:mediumaquamarine;
+}
+a{
+    text-decoration:none;
+    color:deepskyblue;
 }
 

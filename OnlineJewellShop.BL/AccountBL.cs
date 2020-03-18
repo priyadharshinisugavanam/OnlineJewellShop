@@ -7,14 +7,19 @@ using OnlineJewellShop.Entity;
 using OnlineJewellShop.DAL;
 namespace OnlineJewellShop.BL
 {
-    public class User
+    public interface IAccountBL
+    {
+         void SignUp(User user);
+         User Login(User user);
+    }
+    public class AccountBL: IAccountBL
     {
         UserRepositary repositary = new UserRepositary();
-        public void SignUp(UserDetails user)
+        public void SignUp(User user)
         {
           repositary.AddUser(user);
         }
-        public string Login(UserDetails user)
+        public User Login(User user)
         {
             return repositary.Login(user);
         }

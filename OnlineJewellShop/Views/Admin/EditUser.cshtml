@@ -1,0 +1,27 @@
+﻿@model OnlineJewellShop.Entity.User
+@{
+    ViewBag.Title = "EditUser";
+}
+
+<h2>EditUser</h2>
+
+
+@using (Html.BeginForm("EditUser", "Admin", FormMethod.Post))
+{
+    @Html.HiddenFor(Model => Model.Password)
+    @Html.HiddenFor(Model => Model.UserID)
+    @Html.HiddenFor(Model => Model.PhoneNumber)
+    @Html.HiddenFor(Model => Model.MailId)
+
+    <table>
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.Role)
+            </td>
+            <td>@Html.EditorFor(Model => Model.Role)</td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="update" runat="server" /></td>
+        </tr>
+    </table>
+}

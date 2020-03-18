@@ -1,0 +1,42 @@
+﻿@model IEnumerable<OnlineJewellShop.Entity.User>
+
+@{
+    ViewBag.Title = "ViewProduct";
+    
+}
+
+<h2>View User</h2>
+
+<table border="1">
+    <tr>
+        <th>UserId</th>
+        <th>Mail</th>
+        <th>Phone number</th> 
+        <th>Role</th>
+    </tr>
+
+    @foreach (OnlineJewellShop.Entity.User user in Model)
+    {
+        <tr>
+            <td>
+                @user.UserID
+            </td>
+
+            <td>
+                @user.MailId
+            </td>
+            <td>
+                @user.PhoneNumber
+            </td>
+            <td>
+                @user.Role
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditUser", new { id = user.UserID, @class = "LinkColor" })
+                @Html.ActionLink("Delete", "DeleteUser", new { id = user.UserID, @class = "LinkColor" })
+            </td>
+        </tr>
+
+
+    }
+</table>
