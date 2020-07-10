@@ -71,6 +71,12 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="xunit.abstractions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
+      <HintPath>..\packages\xunit.abstractions.2.0.3\lib\net35\xunit.abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="xunit.core, Version=2.4.1.0, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
+      <HintPath>..\packages\xunit.extensibility.core.2.4.1\lib\net452\xunit.core.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Web.Razor">
@@ -116,9 +122,12 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Images\jwel.jpg" />
+    <Content Include="Images\logo.png" />
     <Content Include="Images\maxresdefault.png" />
     <Content Include="Images\moon.jpg" />
     <Content Include="Images\perl.jpg" />
+    <Content Include="Images\ring.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -140,6 +149,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -147,6 +157,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Mapping.cs" />
+    <Compile Include="Models\OrderModel.cs" />
+    <Compile Include="Models\ShoppingCartRemoveViewModel.cs" />
+    <Compile Include="Models\ShoppingCartViewModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\ProductCatogeryModel.cs" />
     <Compile Include="Models\ProductModel.cs" />
@@ -168,7 +181,6 @@
     <Content Include="Views\User\ViewProductCategory.cshtml" />
     <Content Include="Views\User\ProductsDetail.cshtml" />
     <Content Include="Views\User\UserOperation.cshtml" />
-    <Content Include="Views\Admin\ViewProductCategory.cshtml" />
     <Content Include="Views\Admin\EditProductCategory.cshtml" />
     <Content Include="Views\Admin\DeleteProductCategory.cshtml" />
     <Content Include="Views\Admin\ViewUser.cshtml" />
@@ -179,6 +191,12 @@
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Partial.cshtml" />
     <Content Include="Views\Error\Error.cshtml" />
+    <Content Include="Views\Admin\ViewProductCategory.cshtml" />
+    <Content Include="Views\Cart\ViewProduct.cshtml" />
+    <Content Include="Views\Cart\Index.cshtml" />
+    <Content Include="Views\Cart\AddressAndPayment.cshtml" />
+    <Content Include="Views\Cart\Complete.cshtml" />
+    <Content Include="Views\Cart\Billing.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -188,6 +206,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="ProductImages\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OnlineJewellShop.BL\OnlineJewellShop.BL.csproj">

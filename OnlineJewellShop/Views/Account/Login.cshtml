@@ -12,15 +12,19 @@
 {
     <table cellpadding="10">
         <tr>
-            <td>@Html.Label("User Id")</td>
+            <td>@Html.Label("Email")</td>
             <td>
-                @Html.TextBoxFor(Model => Model.UserID, new { @id = "UserId" })
-                @Html.ValidationMessageFor(model => model.UserID, "", new { @class = "danger" })
+                @Html.TextBoxFor(Model => Model.MailId, new { @id = "MailId" })
+                @Html.ValidationMessageFor(model => model.MailId, "", new { @class = "danger" })
+            <td style="color:red">
+
             </td>
         </tr>
         <tr>
             <td>@Html.Label("Password")</td>
-            <td>@Html.PasswordFor(Model => Model.Password, new { @id = "password" }) @Html.ValidationMessageFor(Model => Model.Password, "", new { @class = "danger" })</td>
+            <td>@Html.PasswordFor(Model => Model.Password, new { @id = "password" }) 
+                @Html.ValidationMessageFor(Model => Model.Password, "", new { @class = "danger" })
+            </td>
             <td style="color:red">
                 @if (ViewBag.message != null)
                 {
@@ -35,6 +39,36 @@
         </tr>
 
     </table>
+
+    @*<div class="sidebar" style="display:table">
+    <div style="display:table-row">
+        <div style="display:table-cell">@Html.Label("User Id")</div>
+
+        <div style="display:table-cell">
+            @Html.TextBoxFor(Model => Model.UserID, new { @id = "UserId" ,@class="text"})
+            @Html.ValidationMessageFor(model => model.UserID, "", new { @class = "danger" })
+        </div>
+    </div>
+
+    <div style="display:table-row" >
+        <div style="display:table-cell">
+            @Html.Label("Password")
+        </div>
+        <div  style="display:table-cell">
+            @Html.PasswordFor(Model => Model.Password, new { @id = "password",@class="text" })
+            @Html.ValidationMessageFor(Model => Model.Password, "", new { @class = "danger" })
+            <div style="color:red">
+                @if (ViewBag.message != null)
+                {
+                    @ViewBag.message
+                }
+            </div>
+        </div>
+    </div>
+    <div style="display:table-row" class="text">
+        <input type="submit" runat="server" />@Html.AntiForgeryToken()
+     </div>
+    </div>*@
 }
 
 

@@ -55,7 +55,8 @@ namespace OnlineJewellShop.DAL
         { 
             using (DbConnect dbConnect = new DbConnect())
             {
-                User userDetails = dbConnect.Data.Where(x => x.UserID == user.UserID).Where(y => y.Password == user.Password).SingleOrDefault();
+               
+                User userDetails = dbConnect.Data.Where(x => x.MailId == user.MailId).Where(y => y.Password == user.Password).SingleOrDefault();
                 //if (userDetails != null)
                 //{
                 //    return userDetails.Role;

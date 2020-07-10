@@ -4,22 +4,20 @@
     ViewBag.Title = "ViewProduct";
 }
 
-<h2>View Product</h2>
-
-
-
-
-
-<table border="1">
+<h2>Available Product's list</h2>
+<table  >
     <tr>
         <th>Category</th>
         <th>Product Number</th>
         <th>Product Name</th>
         <th>Product Rate</th>
+        <th>Product Image</th>
+        <th>Update</th>
     </tr>
 
     @foreach (OnlineJewellShop.Entity.Product product in Model)
     {
+       product.ProductImagePath=Path.Combine("~/ProductImages/", product.ProductImagePath);
         <tr>
             <td>@product.ProductCatogeries.productCatogeryName</td>
             <td>
@@ -30,6 +28,10 @@
             </td>
             <td>
                 @product.ProductRate
+
+            </td>
+            <td>
+                <img style="min-height:200px;width:100%"src="@Url.Content(product.ProductImagePath)" />
 
             </td>
             <td>

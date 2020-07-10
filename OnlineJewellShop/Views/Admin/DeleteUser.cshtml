@@ -3,7 +3,7 @@
     ViewBag.Title = "DeleteUser";
 }
 
-<h2>DeleteUser</h2>
+<h2>Delete User profile</h2>
 
 
 @using (Html.BeginForm("DeleteUser", "Admin", FormMethod.Post))
@@ -36,7 +36,11 @@
         </tr>
         <tr>
             <td><input type="submit" value="Confirm Delete" /></td>
+
         </tr>
     </table>
 }
-
+@using (Html.BeginForm("ViewUser", "Admin", FormMethod.Post))
+{
+    <td><input type="submit" value="cancel" /></td>
+}

@@ -37,17 +37,24 @@ namespace OnlineJewellShop.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    var user = AutoMapper.Mapper.Map<UserEntityModel, User>(userEntity);
-                    //UserDetails userDetails = new UserDetails();
-                    //userDetails.UserID = userEntity.UserID;
-                    //userDetails.Password = userEntity.Password; 
-                    //userDetails.phoneNumber = userEntity.PhoneNumber;
-                    //userDetails.ConformPassword = userEntity.ConformPassword;
-                    //userDetails.MailId = userEntity.MailId;
+                    if (userEntity.ConformPassword == userEntity.Password)
+                    {
+                        var user = AutoMapper.Mapper.Map<UserEntityModel, User>(userEntity);
+                        //UserDetails userDetails = new UserDetails();
+                        //userDetails.UserID = userEntity.UserID;
+                        //userDetails.Password = userEntity.Password; 
+                        //userDetails.phoneNumber = userEntity.PhoneNumber;
+                        //userDetails.ConformPassword = userEntity.ConformPassword;
+                        //userDetails.MailId = userEntity.MailId;
 
 
-                    accountBL.SignUp(user);
-                    return RedirectToAction("Login");
+                        accountBL.SignUp(user);
+                        return RedirectToAction("Login");
+                    }
+                    else
+                    {
+                        ViewBag.Message = "Conform password does not match password";
+                    }
                 }
                 return View();
             }
@@ -80,9 +87,8 @@ namespace OnlineJewellShop.Controllers
 
                     if (user != null)
                     {
-                        FormsAuthentication.SetAuthCookie(user.UserID, false);
-
-                        var authTicket = new FormsAuthenticationTicket(1, user.UserID, DateTime.Now, DateTime.Now.AddMinutes(20), false, user.Role);
+                        FormsAuthentication.SetAuthCookie(user.MailId, false);
+                        var authTicket = new FormsAuthenticationTicket(1, user.MailId, DateTime.Now, DateTime.Now.AddMinutes(20), false, user.Role);
                         string encryptedTicket = FormsAuthentication.Encrypt(authTicket);
                         var authCookie = new HttpCookie(FormsAuthentication.FormsCookieName, encryptedTicket);
                         HttpContext.Response.Cookies.Add(authCookie);

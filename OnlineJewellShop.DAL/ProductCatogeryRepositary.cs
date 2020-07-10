@@ -9,10 +9,10 @@ namespace OnlineJewellShop.DAL
     public interface IProductCategoryRepositary
     {
         void AddProductCategory(ProductCatogeries productCategories);
-        IEnumerable<ProductCatogeries> GetProductCatogeries();
         ProductCatogeries GetProduct(int productNumber);
         void DeleteProductCategories(ProductCatogeries product);
         void UpdateProductCategory(ProductCatogeries product);
+        IEnumerable<ProductCatogeries> DisplayProduct();
     }
 
 
@@ -38,15 +38,17 @@ namespace OnlineJewellShop.DAL
                 dbConnect.SaveChanges();
             }
         }
-        //Geting productcategories as list
-        public IEnumerable<ProductCatogeries> GetProductCatogeries()
+        public IEnumerable<ProductCatogeries> DisplayProduct()
         {
             using (DbConnect dbConnect = new DbConnect())
             {
-                
-                return dbConnect.ProductCategoryData.ToList();
+
+                List<ProductCatogeries> products = dbConnect.ProductCategoryData.ToList();
+                return products;
             }
         }
+       
+        
         //get productcategory using productcategory id
         public ProductCatogeries GetProduct(int productNumber)
         {

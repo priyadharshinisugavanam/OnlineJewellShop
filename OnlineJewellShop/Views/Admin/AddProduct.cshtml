@@ -3,53 +3,64 @@
 @{
     ViewBag.Title = "AddProduct";
 }
-
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
 
 <h2>Add Product</h2>
 
 
-@using (Html.BeginForm("AddProduct", "Admin", FormMethod.Post))
+@using (Html.BeginForm("AddProduct", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
 
-    <table>
-        <tr>
-            <td>
-                @Html.LabelFor(Model => Model.ProductName)
+<table>
+    
+    <tr>
+        <td>
+            @Html.LabelFor(Model => Model.ProductName)
 
-            </td>
-            <td>
-                @Html.TextBoxFor(Model => Model.ProductName)
-                @Html.ValidationMessageFor(model => model.ProductName, "", new { @class = "danger" })
-            </td>
-        </tr>
-        <tr>
-            <td>
-                @Html.LabelFor(model => model.ProductRate)
+        </td>
+        <td>
+            @Html.TextBoxFor(Model => Model.ProductName)
+            @Html.ValidationMessageFor(model => model.ProductName, "", new { @class = "danger" })
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.LabelFor(model => model.ProductRate)
 
-            </td>
-            <td>
-                @Html.TextBoxFor(Model => Model.ProductRate)
-                @Html.ValidationMessageFor(model => model.ProductRate, "", new { @class = "danger" })
-            </td>
-        </tr>
-        <tr>
-            <td>
-                @Html.LabelFor(model => model.ProductCatogeries)
-            </td>
-            <td>
-                @Html.DropDownListFor(model => model.ProductCatogeryId, (IEnumerable<SelectListItem>)ViewBag.ProductCategories, "select category")
-                @Html.ValidationMessageFor(model => model.ProductCatogeryId, "", new { @class = "danger" })
-            </td>
-        </tr>
+        </td>
+        <td>
+            @Html.TextBoxFor(Model => Model.ProductRate)
+            @Html.ValidationMessageFor(model => model.ProductRate, "", new { @class = "danger" })
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.LabelFor(model => model.ProductCatogeries)
+        </td>
+        <td>
+            @Html.DropDownListFor(model => model.ProductCatogeryId, (IEnumerable<SelectListItem>)ViewBag.ProductCategories, "select category")
+            @Html.ValidationMessageFor(model => model.ProductCatogeryId, "", new { @class = "danger" })
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.Label("Image")
+        </td>
+        <td>
+           <input type="file" id="image" name="ImageUpload" />
+        </td>
+    </tr>
 
 
-        <tr>
-            <td>
+    <tr>
+        <td>
 
-                <input type="submit" />
-            </td>
-        </tr>
-    </table>
+            <input type="submit" />
+        </td>
+    </tr>
+</table>
 
 }
 

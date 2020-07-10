@@ -3,17 +3,18 @@
     ViewBag.Title = "ViewProductCategory";
 }
 
-<h2>View Product Category</h2>
+<h2>Categories</h2>
 @using (Html.BeginForm("ProductsDetail", "Admin", FormMethod.Post))
 {
-    <table>
+    <table style="padding-bottom:15%">
 
         @foreach (OnlineJewellShop.Entity.ProductCatogeries product in @Model)
         {
-            <tr>
-                <td>@Html.ActionLink(product.productCatogeryName, "ProductsDetail", new { id = product.ProductCatogeryId, @class = "LinkColors" })</td>
+        <tr >
+            
+            <td  class = "btn btn-danger">@Html.ActionLink(product.productCatogeryName, "ProductsDetail", new { id = product.ProductCatogeryId , @class = "LinkColor"})</td>
 
-            </tr>
+        </tr>
         }
     </table>
 }

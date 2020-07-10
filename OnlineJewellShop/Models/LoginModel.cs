@@ -9,7 +9,7 @@ namespace OnlineJewellShop.Models
     public class LoginModel
     {
             [Required]
-            public string UserID { get; set; }
+            public string MailId { get; set; }
             [Required]
             [DataType(DataType.Password, ErrorMessage = "invalid")]
             [RegularExpression(@"^(?=.{8,})(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$", ErrorMessage = "Invalid Password")]

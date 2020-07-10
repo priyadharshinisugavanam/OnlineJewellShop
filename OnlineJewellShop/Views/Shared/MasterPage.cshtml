@@ -7,35 +7,55 @@
     <title>@ViewBag.Title</title>
 </head>
 <body>
-    <div>
-        <h1 style="text-align:center">Sri Mathre Jewellers</h1>
-        <div style="text-align:right">
-            @Html.ActionLink("SignUp", "SignUp", "Account", " ", new { @class = "LinkColor" })
+    
+        
+    <header> <h1 class="Name">Sri Mathre Jewellery</h1></header>
+       
+   
 
-            @if (HttpContext.Current.User.Identity.IsAuthenticated)
-            {
-                @Html.ActionLink("Logout", "LogOff", "Account", " ", new { @class = "LinkColor" })
-            }
-            else
-            {
-                @Html.ActionLink("Login", "Login", "Account", " ", new { @class = "LinkColor" })
-            }
-            @Html.ActionLink("Home ", "Index", "Home", " ", new { @class = "Linkcolor" })
+    <div id="hamburger" class="SideNav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 
-            @if (HttpContext.Current.User.IsInRole("Admin"))
-            {
+        @Html.ActionLink("SignUp", "SignUp", "Account", " ", new { @class = "LinkColor" })
 
-                @Html.ActionLink("AddProduct ", "AddProduct", "Admin", " ", new { @class = "LinkColor" })
-                @Html.ActionLink("ViewProducts ", "ViewProduct", "Admin", " ", new { @class = "LinkColor" })
-                @Html.ActionLink("AddProductcategory ", "AddProductCategory", "Admin", " ", new { @class = "LinkColor" })  
-                @Html.ActionLink("ViewUser", "ViewUser", "Admin", "", new { @class = "LinkColor" })
-            }
-            @if (HttpContext.Current.User.IsInRole("User"))
-            {
-                @Html.ActionLink("Categories", "ViewProductCategory","User","", new { @class = "LinkColor" })
-            }
-        </div>
+        @if (HttpContext.Current.User.Identity.IsAuthenticated)
+        {
+            @Html.ActionLink("Logout", "LogOff", "Account", " ", new { @class = "LinkColor" })
+        }
+        else
+        {
+            @Html.ActionLink("Login", "Login", "Account", " ", new { @class = "LinkColor" })
+        }
+        @Html.ActionLink("Home ", "Index", "Home", " ", new { @class = "LinkColor" })
 
+        @if (HttpContext.Current.User.IsInRole("Admin"))
+        {
+
+            @Html.ActionLink("AddProduct ", "AddProduct", "Admin", " ", new { @class = "LinkColor" })
+            @Html.ActionLink("ViewProducts ", "ViewProduct", "Admin", " ", new { @class = "LinkColor" })
+            @Html.ActionLink("AddProductcategory ", "AddProductCategory", "Admin", " ", new { @class = "LinkColor" })
+            @Html.ActionLink("ViewProductcategory ", "ViewProductCategory", "Admin", " ", new { @class = "LinkColor" })
+            @Html.ActionLink("ViewUser", "ViewUser", "Admin", "", new { @class = "LinkColor" })
+        }
+        @if (HttpContext.Current.User.IsInRole("User"))
+        {
+            @Html.ActionLink("Categories", "ViewProductCategory", "User", "", new { @class = "LinkColor" })
+        }
+    </div>
+    <span class="Burgermenu" onclick="openNav()">
+        &#9776;
+    </span>
+   
+
+    <script>
+        function openNav() {
+            document.getElementById("hamburger").style.display = "block";
+        }
+        function closeNav() {
+            document.getElementById("hamburger").style.display = "none";
+        }
+    </script>
+    <div class="ChildPage">
         @RenderBody()
     </div>
 </body>

@@ -1,26 +1,36 @@
-﻿@model  IEnumerable<OnlineJewellShop.Entity.ProductCatogeries>
+﻿@model IEnumerable<OnlineJewellShop.Entity.ProductCatogeries>
+
 @{
     ViewBag.Title = "ViewProductCategory";
 }
 
-
-<h2>View Product Category</h2>
-
-<table>
+<h2>Available Product Category's List </h2>
+<table >
     <tr>
-        <th>Product Category Id</th>
-        <th>Product Category Name</th>
+        <th>Category Id</th>
+        <th>Category</th>
+        <th>Update</th>
     </tr>
 
-    @foreach (OnlineJewellShop.Entity.ProductCatogeries product in @Model)
+    @foreach (OnlineJewellShop.Entity.ProductCatogeries user in Model)
     {
         <tr>
-            <td>@product.ProductCatogeryId</td>
-            <td>@product.productCatogeryName</td>
             <td>
-                @Html.ActionLink("Edit", "EditProductCategory", new { id = product.ProductCatogeryId, @class = "LinkColor" })
-                @Html.ActionLink("Delete", "DeleteProductCategory", new { id = product.ProductCatogeryId, @class = "LinkColor" })
+                @user.ProductCatogeryId
+            </td>
+
+            <td>
+                @user.productCatogeryName
+            </td>
+          
+            <td>
+                @Html.ActionLink("Edit", "EditProductCategory", new { id = user.ProductCatogeryId, @class = "LinkColor" })
+                @Html.ActionLink("Delete", "DeleteProductCategory", new { id = user.ProductCatogeryId, @class = "LinkColor" })
             </td>
         </tr>
+
+
     }
 </table>
+
+

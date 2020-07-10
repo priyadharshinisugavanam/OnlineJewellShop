@@ -12,6 +12,7 @@ namespace OnlineJewellShop.Entity
     public class Product
     {
         [Key]
+
         public int ProductId { get; set; }
         public int ProductCatogeryId { get; set; }
         public ProductCatogeries ProductCatogeries { get; set;}
@@ -19,14 +20,10 @@ namespace OnlineJewellShop.Entity
         [MaxLength(25)]
         public string ProductName { get; set; }
         [Required]
-        public int ProductRate { get; set; }
-
-        //public string ImagePath { get; set; }
-
-        //public HttpPostedFileBase ImageFile { get; set; }
-        public Product()
-        {
-        }
+        public decimal ProductRate { get; set; }
+        public string ProductImagePath { get; set; }
+        
+        
 
     }
 }

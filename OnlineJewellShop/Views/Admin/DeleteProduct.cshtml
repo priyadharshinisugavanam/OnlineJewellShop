@@ -3,7 +3,7 @@
     ViewBag.Title = "DeleteProduct";
 }
 
-<h2>DeleteProduct</h2>
+<h2>Delete Product</h2>
 @using (Html.BeginForm("DeleteProduct", "Admin", FormMethod.Post))
 {
     <table>
@@ -34,11 +34,16 @@
         </tr>
         <tr>
             <td>@Html.Label("ProductCategory")</td>
-            <td>@Html.ValueFor(Model=>Model.ProductCatogeries.productCatogeryName)</td>
+            <td>@Html.ValueFor(Model => Model.ProductCatogeries.productCatogeryName)</td>
         </tr>
-        
+
         <tr>
             <td><input type="submit" value="Confirm Delete" /></td>
+
         </tr>
     </table>
+}
+@using (Html.BeginForm("ViewProduct", "Admin", FormMethod.Post))
+{
+    <td><input type="submit" value="cancel" /></td>
 }

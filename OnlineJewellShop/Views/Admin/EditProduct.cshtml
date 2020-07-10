@@ -3,36 +3,62 @@
     ViewBag.Title = "EditProduct";
 }
 
-<h2>EditProduct</h2>
+<h2>Update Product</h2>
 
 
-@using (Html.BeginForm("EditProduct", "Admin"))
+
+@using (Html.BeginForm("EditProduct", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
-    @Html.HiddenFor(Model => Model.ProductId)
+
     <table>
+        @Html.HiddenFor(Model=>Model.ProductId)
+        <tr>
+            <td>
+                @Html.LabelFor(Model => Model.ProductName)
+
+            </td>
+            <td>
+                @Html.TextBoxFor(Model => Model.ProductName)
+                @Html.ValidationMessageFor(model => model.ProductName, "", new { @class = "danger" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.ProductRate)
+
+            </td>
+            <td>
+                @Html.TextBoxFor(Model => Model.ProductRate)
+                @Html.ValidationMessageFor(model => model.ProductRate, "", new { @class = "danger" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.ProductCatogeries)
+            </td>
+            <td>
+                @Html.DropDownListFor(model => model.ProductCatogeryId, (IEnumerable<SelectListItem>)ViewBag.ProductCategories, "select category")
+                @Html.ValidationMessageFor(model => model.ProductCatogeryId, "", new { @class = "danger" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.Label("Image")
+            </td>
+            <td>
+                <img style="min-height:200px;width:100%" src="~/ProductImages/@Html.DisplayFor(Model=>Model.ProductImagePath)" />
+                <input type="file" id="image" name="ImageUpload" />
+            </td>
+        </tr>
+
 
         <tr>
             <td>
-                @Html.LabelFor(model => model.ProductName)
+
+                <input type="submit" />
             </td>
-            <td>@Html.EditorFor(Model => Model.ProductName)</td>
-        </tr>
-        <tr>
-            <td>
-                @Html.LabelFor(Model => Model.ProductRate)
-            </td>
-            <td>
-                @Html.EditorFor(Model => Model.ProductRate)
-            </td>
-        </tr>
-        <tr>
-            <td>
-                @Html.LabelFor(Model => Model.ProductCatogeryId)
-            </td>
-            <td>@Html.DropDownListFor(Model => Model.ProductCatogeryId, (IEnumerable<SelectListItem>)ViewBag.ProductCategories, " select Category")</td>
-        </tr>
-        <tr>
-            <td><input type="submit" value="update" runat="server" /></td>
         </tr>
     </table>
+
 }
+

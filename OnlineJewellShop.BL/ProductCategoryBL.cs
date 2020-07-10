@@ -11,10 +11,9 @@ namespace OnlineJewellShop.BL
     public interface IProductCategoryBL
     {
         void AddProductCategory(ProductCatogeries productCatogeries);
-        IEnumerable<ProductCatogeries> GetProductCatogeries();
         void UpdateProductCategory(ProductCatogeries product);
         void DeleteProductCategory(ProductCatogeries product);
-
+        IEnumerable<ProductCatogeries> DisplayProduct();
         ProductCatogeries GetProduct(int id);
 
 
@@ -27,6 +26,10 @@ namespace OnlineJewellShop.BL
         {
             productCategoryRepositary = new ProductCategoryRepositary();
         }
+        public IEnumerable<ProductCatogeries> DisplayProduct()
+        {
+            return productCategoryRepositary.DisplayProduct();
+        }
         public void AddProductCategory(ProductCatogeries productCatogeries)
         {
             productCategoryRepositary.AddProductCategory(productCatogeries);
@@ -36,10 +39,7 @@ namespace OnlineJewellShop.BL
             return productCategoryRepositary.GetProduct(id);
         }
         
-        public IEnumerable<ProductCatogeries> GetProductCatogeries()
-        {
-            return productCategoryRepositary.GetProductCatogeries();
-        }
+        
         public void UpdateProductCategory(ProductCatogeries product)
         {
             productCategoryRepositary.UpdateProductCategory(product);

@@ -17,13 +17,10 @@ namespace OnlineJewellShop.Models
         public string ProductName { get; set; }
         [Required]
         [RegularExpression(@"^[0-9]*$",ErrorMessage ="Invalid")]
-        public int ProductRate { get; set; }
-        //public string ImagePath { get; set; }
-
-        //public HttpPostedFileBase ImageFile { get; set; }
-        public ProductModel()
-        {
-        }
-
+        public float ProductRate { get; set; }
+        
+        public string ProductImagePath { get; set; }
+        public HttpPostedFileBase ImageUpload { get; set; }
+        
     }
 }

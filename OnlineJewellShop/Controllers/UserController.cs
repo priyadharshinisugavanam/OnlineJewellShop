@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace OnlineJewellShop.Controllers
 {
+    [Authorize(Roles = "User")]
     public class UserController : Controller
     {
         IProductCategoryBL productCategoryBL;
@@ -36,7 +37,7 @@ namespace OnlineJewellShop.Controllers
         {
             try
             {
-                IEnumerable<ProductCatogeries> products = productCategoryBL.GetProductCatogeries();
+                IEnumerable<ProductCatogeries> products = productCategoryBL.DisplayProduct();
                 return View(products);
             }
             catch
@@ -44,18 +45,22 @@ namespace OnlineJewellShop.Controllers
                 return RedirectToAction("Error", "Error");
             }
         }
+       
         [HttpGet]//get method for getting productcategory
         public ActionResult ProductsDetail(int id)
         {
             try
             {
-                List<Product> products = (List<Product>)productBL.GetProductCategory(id);
+
+               List<Product> products = (List<Product>)productBL.GetProductCategory(id);
                 return View(products);
+                
             }
             catch
             {
                 return RedirectToAction("Error", "Error");
             }
+           
         }
     }
 }

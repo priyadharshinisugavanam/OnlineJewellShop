@@ -19,6 +19,9 @@ namespace OnlineJewellShop.DAL
         }
         public DbSet<Product> ProductData { get; set; }
         public DbSet<ProductCatogeries> ProductCategoryData { get; set; }
+        public DbSet<OrderEntity> Orders { get; set; }
+        public DbSet<OrderDetail> OrderDetails { get; set; }
+        public DbSet<CartEntity> Carts { get; set; }
         public DbSet<User> Data { get; set; }
         public DbConnect() : base("DBConnection")
         {
