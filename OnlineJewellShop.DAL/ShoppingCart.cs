@@ -21,6 +21,7 @@ namespace OnlineJewellShop.DAL
         int CreateOrder(OrderEntity order);
         string GetCartId(HttpContextBase context);
         void MigrateCart(string userName);
+        void Payment(Payment payment);
 
 
     }
@@ -121,9 +122,9 @@ namespace OnlineJewellShop.DAL
         }
         public decimal GetTotal()
         {
-            // Multiply album price by count of that album to get 
-            // the current price for each of those albums in the cart
-            // sum all album price totals to get the cart total
+            // Multiply product price by count of that product to get 
+            // the current price for each of those product in the cart
+            // sum all product price totals to get the cart total
             decimal? total = (from cartItems in storeDB.Carts
                               where cartItems.CartId == ShoppingCartId
                               select (int?)cartItems.Count *
@@ -195,6 +196,14 @@ namespace OnlineJewellShop.DAL
                 item.CartId = userName;
             }
             storeDB.SaveChanges();
+        }
+        public void Payment(Payment payment)
+        {
+            using (DbConnect dbConnect = new DbConnect())
+            {
+                    dbConnect.pay.Add(payment);
+                    dbConnect.SaveChanges();
+            }
         }
         public IEnumerable<OrderDetail> GetOrderDetails(int productNumber)
         {

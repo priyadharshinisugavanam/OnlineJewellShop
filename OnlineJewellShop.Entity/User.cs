@@ -33,10 +33,7 @@ namespace OnlineJewellShop.Entity
             
             public long PhoneNumber { get; set; }
        
-        public User()
-        {
-
-        }
+        
     }
    
 }

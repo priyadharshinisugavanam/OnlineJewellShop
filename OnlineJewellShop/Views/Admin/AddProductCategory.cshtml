@@ -8,23 +8,33 @@
 <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
 <h2>Add Product Category</h2>
 
-@using (Html.BeginForm("AddProductCategory", "Admin", FormMethod.Post))
+@using (Html.BeginForm("AddProductCategory", "Admin", FormMethod.Post,new { enctype = "multipart/form-data" }))
 {
-    <table cellpadding="10">
-        <tr>
-            <td>@Html.Label("Category Name")</td>
-            <td>
-                @Html.TextBoxFor(model => model.productCatogeryName)
-                @Html.ValidationMessageFor(model => model.productCatogeryName, "", new { @class = "danger" })
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <input type="submit" runat="server" />
-                @Html.AntiForgeryToken()
-            </td>
-        </tr>
-    </table>
+<table cellpadding="10">
+    <tr>
+        <td>@Html.Label("Category Name")</td>
+        <td>
+            @Html.TextBoxFor(model => model.productCatogeryName)
+            @Html.ValidationMessageFor(model => model.productCatogeryName, "", new { @class = "danger" })
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.Label("Image")
+        </td>
+        <td>
+            <input type="file" id="productCategoryModel" name="ImageUpload" />
+        </td>
+    </tr>
+
+
+    <tr>
+        <td>
+
+            <input type="submit" />
+        </td>
+    </tr>
+</table>
 
 
 }

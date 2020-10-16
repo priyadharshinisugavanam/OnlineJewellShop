@@ -11,6 +11,7 @@ namespace OnlineJewellShop.BL
     public interface IProductBL
     {
         void AddProduct(Product product);
+        //void AddPaymentDB(Payment payment);
         IEnumerable<Product> DisplayProduct();
         void UpdateProduct(Product product);
         Product GetProduct(int id);
@@ -53,6 +54,10 @@ namespace OnlineJewellShop.BL
         {
             return repositary.GetProductCategory(productNumber);
         }
+        //public void AddPaymentDB(Payment payment)
+        //{
+        //    repositary.AddPaymentDB(payment);
+        //}
 
     }
 }

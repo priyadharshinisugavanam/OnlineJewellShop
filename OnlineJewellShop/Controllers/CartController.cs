@@ -52,7 +52,7 @@ namespace OnlineJewellShop.Controllers
                 return RedirectToAction("Error", "Error");
             }
         }
-        
+
         public ActionResult Index()
         {
             var cart = ShoppingCart.GetCart(this.HttpContext);
@@ -68,7 +68,7 @@ namespace OnlineJewellShop.Controllers
         }
         //
         // GET: /Store/AddToCart/5
-        
+
         //
         // AJAX: /ShoppingCart/RemoveFromCart/5
         [HttpGet]
@@ -96,7 +96,7 @@ namespace OnlineJewellShop.Controllers
             };
             return RedirectToAction("Index");
         }
-        
+
         //
         // GET: /ShoppingCart/CartSummary
         [ChildActionOnly]
@@ -114,7 +114,7 @@ namespace OnlineJewellShop.Controllers
         //
         // POST: /Checkout/AddressAndPayment
         [HttpPost]
-        public ActionResult AddressAndPayment(FormCollection values)
+        public ActionResult AddressAndPayment(FormCollection collection)
         {
             var order = new OrderEntity();
             TryUpdateModel(order);
@@ -128,7 +128,7 @@ namespace OnlineJewellShop.Controllers
             };
             try
             {
-                if (values.Count>0)
+                if (collection.Count>0)
                 {
 
                     order.Username = User.Identity.Name;
@@ -146,7 +146,7 @@ namespace OnlineJewellShop.Controllers
                         new { id = order.OrderId });
                 }
                 return View();
-                
+
             }
             catch
             {
@@ -159,10 +159,37 @@ namespace OnlineJewellShop.Controllers
             ShoppingCart cart = new ShoppingCart();
             // Validate customer owns this order
             IEnumerable<OrderDetail> products = cart.GetOrderDetails(id);
-
             return View(products);
             
         }
-       
+        [HttpGet]//get method for Payment
+        public ActionResult Payment()
+        {
+
+            return View();
+
+        }
+        [HttpPost]
+        public ActionResult Payment(PaymentModel payment)
+        {
+           
+                if (ModelState.IsValid)
+                {
+                    
+
+                    var pay = AutoMapper.Mapper.Map<PaymentModel, Payment>(payment);
+                        
+
+
+                        ShoppingCartBL.Payment(pay);
+                        return RedirectToAction("Final");
+                    }
+                return View();
+        }
+        public ActionResult Final()
+        {
+            return View();
+        }
+
     }
 }

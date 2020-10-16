@@ -23,6 +23,7 @@ namespace OnlineJewellShop
                 config.CreateMap<ProductModel, Product>();
                 config.CreateMap<LoginModel, User>();
                 config.CreateMap<ProductCatogeryModel,ProductCatogeries>();
+                config.CreateMap<PaymentModel, Payment>(); ;
             });
         }
     }

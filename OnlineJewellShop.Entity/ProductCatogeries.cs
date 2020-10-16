@@ -14,6 +14,7 @@ namespace OnlineJewellShop.Entity
         [Required]
         [MaxLength(20)]
         public string productCatogeryName { get; set; }
+        public string ProductImagePath { get; set; }
         public ICollection<Product> Products { get; set; }
     }
 }

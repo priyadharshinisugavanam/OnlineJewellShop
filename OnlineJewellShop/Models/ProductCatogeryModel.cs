@@ -12,6 +12,8 @@ namespace OnlineJewellShop.Models
         public string ProductCatogeryId { get; set; }
         [Required]
         public string productCatogeryName { get; set; }
+        public string ProductImagePath { get; set; }
+        public HttpPostedFileBase ImageUpload { get; set; }
         public ProductCatogeryModel()
         {
 

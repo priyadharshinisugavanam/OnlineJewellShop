@@ -169,9 +169,15 @@ namespace OnlineJewellShop.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    var productCategoryMap = AutoMapper.Mapper.Map<ProductCatogeryModel, ProductCatogeries>(productCategoryModel);
-                    productCategoryDetails.AddProductCategory(productCategoryMap);
-                    return RedirectToAction("ViewProductCategory");
+                        string filename = Path.GetFileNameWithoutExtension(productCategoryModel.ImageUpload.FileName);
+                        string extension = Path.GetExtension(productCategoryModel.ImageUpload.FileName);
+                        filename = filename + DateTime.Now.ToString("yymmssfff") + extension;
+                        productCategoryModel.ProductImagePath = filename;
+                        OnlineJewellShop.Entity.ProductCatogeries productCategoryMap = AutoMapper.Mapper.Map<ProductCatogeryModel, ProductCatogeries>(productCategoryModel);
+                        filename = Path.Combine(Server.MapPath("~/ProductCatogeryImages/"), filename);
+                        productCategoryModel.ImageUpload.SaveAs(filename);
+                        productCategoryDetails.AddProductCategory(productCategoryMap);
+                       return RedirectToAction("ViewProductCategory");
                 }
                 else
                 {
@@ -210,12 +216,19 @@ namespace OnlineJewellShop.Controllers
             }
         }
         [HttpPost]//posting to the view
-        public ActionResult EditProductCategory(ProductCatogeryModel products)
+        public ActionResult EditProductCategory(ProductCatogeryModel productCategoryModel)
         {
             try
             {
-                var productMap = AutoMapper.Mapper.Map<ProductCatogeryModel, ProductCatogeries>(products);
-                productCategoryDetails.UpdateProductCategory(productMap);
+                string filename = Path.GetFileNameWithoutExtension(productCategoryModel.ImageUpload.FileName);
+                string extension = Path.GetExtension(productCategoryModel.ImageUpload.FileName);
+                filename = filename + DateTime.Now.ToString("yymmssfff") + extension;
+                productCategoryModel.ProductImagePath = filename;
+                OnlineJewellShop.Entity.ProductCatogeries productCategoryMap = AutoMapper.Mapper.Map<ProductCatogeryModel, ProductCatogeries>(productCategoryModel);
+                filename = Path.Combine(Server.MapPath("~/ProductCatogeryImages/"), filename);
+                productCategoryModel.ImageUpload.SaveAs(filename);
+
+                productCategoryDetails.UpdateProductCategory(productCategoryMap);
                 return RedirectToAction("ViewProductCategory");
             }
             catch

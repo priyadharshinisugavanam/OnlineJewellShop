@@ -122,11 +122,21 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Images\back.jpg" />
+    <Content Include="Images\bg.jpg" />
+    <Content Include="Images\bi.jpg" />
+    <Content Include="Images\ch.jpeg" />
+    <Content Include="Images\denny-muller-AKbE5xlIZXA-unsplash.jpg" />
+    <Content Include="Images\jewel.jpeg" />
     <Content Include="Images\jwel.jpg" />
+    <Content Include="Images\laurissi-goD12nDo-78-unsplash.jpg" />
     <Content Include="Images\logo.png" />
+    <Content Include="Images\lum3n-J0hFWbN0Qvk-unsplash.jpg" />
+    <Content Include="Images\l.jpg" />
     <Content Include="Images\maxresdefault.png" />
     <Content Include="Images\moon.jpg" />
     <Content Include="Images\perl.jpg" />
+    <Content Include="Images\pexels-photo-810036.jpeg" />
     <Content Include="Images\ring.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -158,6 +168,7 @@
     </Compile>
     <Compile Include="Mapping.cs" />
     <Compile Include="Models\OrderModel.cs" />
+    <Compile Include="Models\PaymentModel.cs" />
     <Compile Include="Models\ShoppingCartRemoveViewModel.cs" />
     <Compile Include="Models\ShoppingCartViewModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
@@ -196,7 +207,9 @@
     <Content Include="Views\Cart\Index.cshtml" />
     <Content Include="Views\Cart\AddressAndPayment.cshtml" />
     <Content Include="Views\Cart\Complete.cshtml" />
-    <Content Include="Views\Cart\Billing.cshtml" />
+    <Content Include="Views\Cart\PaymentDetails.cshtml" />
+    <Content Include="Views\Cart\Payment.cshtml" />
+    <Content Include="Views\Cart\Final.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -206,6 +219,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="ProductCatogeryImages\" />
     <Folder Include="ProductImages\" />
   </ItemGroup>
   <ItemGroup>

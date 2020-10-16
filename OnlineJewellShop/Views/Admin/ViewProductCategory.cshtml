@@ -9,11 +9,12 @@
     <tr>
         <th>Category Id</th>
         <th>Category</th>
+        <th>Image</th>
         <th>Update</th>
     </tr>
 
     @foreach (OnlineJewellShop.Entity.ProductCatogeries user in Model)
-    {
+    {user.ProductImagePath=Path.Combine("~/ProductCatogeryImages/", user.ProductImagePath);
         <tr>
             <td>
                 @user.ProductCatogeryId
@@ -22,11 +23,15 @@
             <td>
                 @user.productCatogeryName
             </td>
-          
+            <td>
+                <img style="min-height:200px;width:100%" src="@Url.Content(user.ProductImagePath)" />
+
+            </td>
             <td>
                 @Html.ActionLink("Edit", "EditProductCategory", new { id = user.ProductCatogeryId, @class = "LinkColor" })
                 @Html.ActionLink("Delete", "DeleteProductCategory", new { id = user.ProductCatogeryId, @class = "LinkColor" })
             </td>
+            
         </tr>
 
 

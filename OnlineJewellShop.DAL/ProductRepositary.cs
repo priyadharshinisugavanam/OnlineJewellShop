@@ -10,6 +10,7 @@ namespace OnlineJewellShop.DAL
     public interface IProductRepositary
     {
         void AddProduct(Product product);
+        //void AddPaymentDB(Payment payment);
         IEnumerable<Product> DisplayProduct();
         IEnumerable<Product> GetProductCategory(int productNumber);
         Product GetProduct(int productNumber);
@@ -109,6 +110,16 @@ namespace OnlineJewellShop.DAL
                 //productConnect.SaveChanges();
             }
         }
-        
+        //public void AddPaymentDB(Payment payment)
+        //{
+        //    using (DbConnect dbConnect = new DbConnect())
+        //    {
+                
+        //            dbConnect.Data.Add(payment);
+        //            dbConnect.SaveChanges();
+               
+        //    }
+        //}
+
     }
 }

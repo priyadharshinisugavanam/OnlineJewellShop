@@ -3,19 +3,19 @@
     ViewBag.Title = "ProductsDetail";
 }
 
-<div class="containers">
+
         <div class="rows" style="margin-bottom:100px">
 
             @foreach (OnlineJewellShop.Entity.Product product in Model)
             {
                 product.ProductImagePath = Path.Combine("~/ProductImages/", product.ProductImagePath);
-            <div class="col-lg-4 col-md-4 " style="height:200px;margin-top:100px;padding-bottom:50px">
-                <img style="width:20%;height:80%;border-radius:20px 20px 20px 20px" src="@Url.Content(product.ProductImagePath)" />
+            <div class="col-lg-4 col-md-4 " style="height:200px;margin-top:100px;background-color:rgba(255,255,255,0.6);padding-top:2%;margin-right:80%;padding-bottom:12%">
+                <img style="width:100%;height:80%;border-radius:10px 10px 10px 10px" src="@Url.Content(product.ProductImagePath)" />
 
 
-                <h3>@product.ProductName</h3>
-                <h3>Rs.@product.ProductRate</h3>
-                <h4 class = "btn btn-danger"style="border-radius:20px 20px 20px 20px">@Html.ActionLink("Product Detail","ViewProduct","Cart", new { id = product.ProductId, @class = "LinkColor" },null)</h4>
+                <h3 style="color:#121E55;font-size:100%"><b>@product.ProductName</b></h3>
+                <h3 style="color:#121E55;font-size:100%">Rs.@product.ProductRate</h3>
+                <h4 class = "btn btn-danger"style="border-radius:20px 20px 20px 20px;padding-left:3%">@Html.ActionLink("Product Detail","ViewProduct","Cart", new { id = product.ProductId, @class = "LinkColor" },null)</h4>
                 
             </div>
              }
@@ -23,5 +23,5 @@
        
     </div>
       
-</div>
+
 

@@ -21,6 +21,7 @@ namespace OnlineJewellShop.BL
         int CreateOrder(OrderEntity order);
         string GetCartId(HttpContextBase context);
         void MigrateCart(string userName);
+        void Payment(Payment payment);
 
 
     }
@@ -67,6 +68,10 @@ namespace OnlineJewellShop.BL
         public void MigrateCart(string userName)
         {
             Shopping.MigrateCart(userName);
+        }
+        public void Payment(Payment payment)
+        {
+            Shopping.Payment(payment);
         }
     }
 }

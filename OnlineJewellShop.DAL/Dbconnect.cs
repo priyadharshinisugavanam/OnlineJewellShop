@@ -23,7 +23,9 @@ namespace OnlineJewellShop.DAL
         public DbSet<OrderDetail> OrderDetails { get; set; }
         public DbSet<CartEntity> Carts { get; set; }
         public DbSet<User> Data { get; set; }
-        public DbConnect() : base("DBConnection")
+        public DbSet<Payment> pay { get; set; }
+
+        public DbConnect() : base("OnlineJwellShop")
         {
 
         }

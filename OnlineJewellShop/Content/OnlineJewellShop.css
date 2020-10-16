@@ -1,5 +1,5 @@
 ﻿body {
-    background-image: url('/Images/jwel.jpg');
+    background-image: url('/Images/l.jpg');
     image-rendering: pixelated;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -9,14 +9,19 @@
    
 }
 .containers {
-    padding-right: 15px;
+    
     padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
+    margin-right: 600px;
+    padding-top:15px;
+    color:black;
+    background-color: rgba(255,255,255,0.6);
+}
+.colors {
+    color: #29254f;
 }
 .rows {
-    margin-right: -15px;
-    margin-left: -15px;
+    margin-right: -10px;
+    margin-left: -10px;
 }
 
 .col-sm-4,
@@ -32,9 +37,8 @@
     padding-left: 15px;
 }
 .btn-danger {
-    color: white;
-    font-size: 30px;
-    background-color: rgba(255,255,255,0.3);
+    color: #DCEEF8;
+    background-color: rgba(255,255,255,0.8);
     border-color: papayawhip;
     padding-bottom: 20%
 }
@@ -42,7 +46,7 @@
     .btn {
         display: inline-block;
         margin-bottom: 0;
-        font-weight: normal;
+        font-weight:bolder;
         text-align: center;
         white-space: nowrap;
         vertical-align: middle;
@@ -52,13 +56,14 @@
         background-image: none;
         border: 1px solid transparent;
         padding: 6px 12px;
-        font-size: 14px;
+        font-size: 20px ;
         line-height: 1.42857143;
         border-radius: 4px;
         -webkit-user-select: none;
         -moz-user-select: none;
         -ms-user-select: none;
         user-select: none;
+        
     }
 
     .danger {
@@ -97,15 +102,15 @@
         }
     }
 
-    h3 {
-        color: white;
-        text-align: left;
-        font-family: lato;
-        text-shadow: 1px 1px grey;
-    }
+h3 {
+    color: #DCEEF8;
+    text-align: left;
+    font-family: lato;
+    text-shadow: 1px 1px rgba(255,255,255,0.3);
+}
 
 h1 {
-    color: white;
+    color: #DCEEF8;
     font-size: 60px;
     text-align: left;
     font-family: lato;
@@ -117,13 +122,13 @@ h1 {
         margin-top: 10%
     }
 
-    h2 {
-        color: white;
-        font-size: 25px;
-        text-align: left;
-        font-family: Arial, Helvetica, sans-serif;
-        text-shadow: 1px 3px grey;
-    }
+h2 {
+    color: #DCEEF8;
+    font-size: 25px;
+    text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
+    text-shadow: 1px 3px grey;
+}
 
     .Backgroud {
         text-align: right;
@@ -136,14 +141,14 @@ h1 {
         color: white
     }
 
-    .Name {
-        font-family: Arial, Helvetica, sans-serif;
-        text-align: center;
-        position: absolute;
-        height: 20%;
-        left: 30%;
-        color: white;
-    }
+.Name {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    position: absolute;
+    height: 20%;
+    left: 30%;
+    color: #DCEEF8;
+}
 
     .SideNav {
         display: none;
@@ -158,7 +163,7 @@ h1 {
     }
 
     .HomePage {
-        color: rgba(255,255,255,0.3);
+        color: rgba(255,255,255,0.8);
         font-size: 100px;
         margin-left: 8%;
         margin-top: 20%;
@@ -166,38 +171,38 @@ h1 {
         font-family: 'Times New Roman', Times, serif;
     }
 
-    .SideNav .LinkColor {
-        padding: 30px 28px 8px 32px;
-        color: white;
-        text-decoration: none;
-        font-size: 25px;
-        display: block;
-    }
+.SideNav .LinkColor {
+    padding: 30px 28px 8px 32px;
+    color: #DCEEF8;
+    text-decoration: none;
+    font-size: 25px;
+    display: block;
+}
 
         .SideNav .LinkColor:hover {
             color: #1384b0;
         }
 
-    .SideNav .closebtn {
-        position: absolute;
-        color: white;
-        top: 0;
-        right: 20px;
-        font-size: 50px;
-        margin-left: 50px;
-        text-shadow: 3px 3px grey;
-    }
+.SideNav .closebtn {
+    position: absolute;
+    color: #DCEEF8;
+    top: 0;
+    right: 20px;
+    font-size: 50px;
+    margin-left: 50px;
+    text-shadow: 3px 3px grey;
+}
 
     .LinkColor {
-        color: white;
+        color: black;
         font-family:Arial, Helvetica, sans-serif;
         font-size:20px;
     }
 
-    a {
-        text-decoration: none;
-        color: deepskyblue;
-    }
+a {
+    text-decoration: none;
+    color: #353D6A;
+}
 
     .sidebar {
         margin: 10px;
@@ -242,11 +247,14 @@ h1 {
         box-shadow: rgba(0,0,0,0,5);
     }
 
-    th, td {
-        padding: 15px;
-        background-color: rgba(255,255,255,0.2);
-        color: white
-    }
+th, td {
+    padding: 15px;
+    background-color: rgba(255,255,255,0.8);
+    color: #29254f;
+    font-family: Times New Roman;
+    font-weight:bolder;
+    font-size:20px;
+}
 
     th {
         text-align: left;

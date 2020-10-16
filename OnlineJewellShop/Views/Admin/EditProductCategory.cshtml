@@ -6,20 +6,29 @@
 <h2>update Product category</h2>
 
 
-@using (Html.BeginForm("EditProductCategory", "Admin"))
+@using (Html.BeginForm("EditProductCategory", "Admin",FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.HiddenFor(Model => Model.ProductCatogeryId)
 
-    <table>
+<table>
 
-        <tr>
-            <td>
-                @Html.LabelFor(model => model.productCatogeryName)
-            </td>
-            <td>@Html.EditorFor(Model => Model.productCatogeryName)</td>
-        </tr>
-        <tr>
-            <td><input type="submit" value="update" runat="server" /></td>
-        </tr>
-    </table>
+    <tr>
+        <td>
+            @Html.LabelFor(model => model.productCatogeryName)
+        </td>
+        <td>@Html.EditorFor(Model => Model.productCatogeryName)</td>
+    </tr>
+    <tr>
+        <td>
+            @Html.Label("Image")
+        </td>
+        <td>
+            <img style="min-height:200px;width:100%" src="~/ProductCatogeryImages/@Html.DisplayFor(Model=>Model.ProductImagePath)" />
+            <input type="file" id="productCategoryMap" name="ImageUpload" />
+        </td>
+    </tr>
+    <tr>
+        <td><input type="submit" value="update" runat="server" /></td>
+    </tr>
+</table>
 }
