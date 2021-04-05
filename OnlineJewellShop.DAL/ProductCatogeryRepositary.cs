@@ -1,5 +1,4 @@
-﻿
-using OnlineJewellShop.Entity;
+﻿using OnlineJewellShop.Entity;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -8,10 +7,10 @@ namespace OnlineJewellShop.DAL
 {
     public interface IProductCategoryRepositary
     {
-        void AddProductCategory(ProductCatogeries productCategories);
+        int AddProductCategory(ProductCatogeries productCategories);
         ProductCatogeries GetProduct(int productNumber);
         void DeleteProductCategories(ProductCatogeries product);
-        void UpdateProductCategory(ProductCatogeries product);
+        int UpdateProductCategory(ProductCatogeries product);
         IEnumerable<ProductCatogeries> DisplayProduct();
     }
 
@@ -30,12 +29,12 @@ namespace OnlineJewellShop.DAL
         //   }
        
             //Add product category
-        public void AddProductCategory(ProductCatogeries productCategories)
+        public int AddProductCategory(ProductCatogeries productCategories)
         {
             using (DbConnect dbConnect = new DbConnect())
             {
                 dbConnect.ProductCategoryData.Add(productCategories);
-                dbConnect.SaveChanges();
+                return dbConnect.SaveChanges();
             }
         }
         public IEnumerable<ProductCatogeries> DisplayProduct()
@@ -60,12 +59,13 @@ namespace OnlineJewellShop.DAL
             }
         }
         //update category using object
-        public void UpdateProductCategory(ProductCatogeries product)
+        public int UpdateProductCategory(ProductCatogeries product)
         {
             using (DbConnect productConnect = new DbConnect())
             {
                 productConnect.Entry(product).State = EntityState.Modified;
-                productConnect.SaveChanges();
+                
+                return productConnect.SaveChanges();
             }
         }
         //delete category using object

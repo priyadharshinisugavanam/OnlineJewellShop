@@ -9,12 +9,12 @@ namespace OnlineJewellShop.DAL
 {
     public interface IProductRepositary
     {
-        void AddProduct(Product product);
+        int AddProduct(Product product);
         //void AddPaymentDB(Payment payment);
         IEnumerable<Product> DisplayProduct();
         IEnumerable<Product> GetProductCategory(int productNumber);
         Product GetProduct(int productNumber);
-        void UpdateProduct(Product product);
+        int UpdateProduct(Product product);
         void DeleteProduct(Product product);
     }
     public class ProductRepositary:IProductRepositary
@@ -27,7 +27,7 @@ namespace OnlineJewellShop.DAL
         //    }
         //}
         //Adding the product in db
-            public void AddProduct(Product product)
+            public int AddProduct(Product product)
             {
             using (DbConnect dbConnect = new DbConnect())
             {
@@ -44,7 +44,8 @@ namespace OnlineJewellShop.DAL
                 //    transaction.Rollback();
                 //}}
                 dbConnect.ProductData.Add(product);
-                dbConnect.SaveChanges();
+                
+                return dbConnect.SaveChanges();
             }
         }
         //displays product
@@ -78,19 +79,22 @@ namespace OnlineJewellShop.DAL
             }
         }
         //update product with productid
-        public void UpdateProduct(Product product)
+        public int UpdateProduct(Product product)
         {
             using (DbConnect productConnect = new DbConnect())
             {
                 productConnect.Entry(product).State = EntityState.Modified;
-                productConnect.SaveChanges();
+                
+                return productConnect.SaveChanges();
             }
         }
+
+        
         //delete product with object
         public void DeleteProduct(Product product)
         {
             using (DbConnect productConnect = new DbConnect())
-            {
+            { 
                 using (var transaction = productConnect.Database.BeginTransaction())
                 {
                     try

@@ -5,9 +5,7 @@ using OnlineJewellShop.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-
 namespace OnlineJewellShop.Controllers
 {
 
@@ -62,9 +60,20 @@ namespace OnlineJewellShop.Controllers
             {
                 CartItems = cart.GetCartItems(),
                 CartTotal = cart.GetTotal()
+               
             };
             // Return the view
-            return View(viewModel);
+            if (cart.GetTotal() == 0)
+            {
+                ViewBag.Total = "Cart is empty";
+                return View();
+                
+            }
+            else
+            {
+                return View(viewModel);
+            }
+            
         }
         //
         // GET: /Store/AddToCart/5

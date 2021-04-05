@@ -19,7 +19,7 @@ namespace OnlineJewellShop.Models
             public string UserID { get; set; }
             [Required]
             [DataType(DataType.Password,ErrorMessage ="invalid")]
-            [RegularExpression(@"^(?=.{8,})(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$",ErrorMessage ="Invalid Password")]
+            [RegularExpression(@"^(?=.{8,})(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$",ErrorMessage ="password should be 'more than 8 char' 'atleast 1 captial' 'atleast 1 number' 'atleast special character' ")]
             public string Password { get; set; }
             [Required]
             public string ConformPassword { get; set; }

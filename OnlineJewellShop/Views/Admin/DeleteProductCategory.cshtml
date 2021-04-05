@@ -7,23 +7,27 @@
 
 @using (Html.BeginForm("DeleteProductCategory", "Admin", FormMethod.Post))
 {
-    <table>
-        @Html.HiddenFor(Model => Model.ProductCatogeryId)
-        <tr>
-            <td>
-                @Html.LabelFor(Model => Model.productCatogeryName):
-            </td>
-            <td>
-                @Html.ValueFor(Model => Model.productCatogeryName)
-            </td>
-        </tr>
-        <tr>
-            <td><input type="submit" value="Confirm Delete" /></td>
+<div class="containers">
+    <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-4">
 
-        </tr>
-    </table>
-}
-@using (Html.BeginForm("ViewProductCategory", "Admin", FormMethod.Post))
-{
-    <td><input type="submit" value="cancel" /></td>
+            <img class="ProductImageView" src="~/ProductCatogeryImages/@Html.DisplayFor(Model=>Model.ProductImagePath)" />
+        </div>
+        <div class=" col-lg-8 col-md-8 col-sm-8" style="padding-bottom:6%">
+
+            <h3 class="Products">Product Name:</h3> <h4 class="ProductFont">@Model.productCatogeryName</h4>
+            
+            @using (Html.BeginForm("DeleteProduct", "Admin", FormMethod.Post))
+            {
+                <input type="submit" value="Confirm Delete" />
+                @Html.HiddenFor(Model => Model.ProductCatogeryId)
+            }
+            @using (Html.BeginForm("ViewProductCategory", "Admin", FormMethod.Post))
+            {
+                <input type="submit" value="cancel" />
+            }
+        </div>
+    </div>
+
+</div>
 }

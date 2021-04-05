@@ -5,12 +5,12 @@
     <div class="containers">
         <div class="row">
             <div class="col-lg-4 col-md-4 col-sm-4">
-                <img style="height:50%;width:50%" src="~/ProductImages/@Html.DisplayFor(Model=>Model.ProductImagePath)" />
+                <img class="ProductImageView" src="~/ProductImages/@Html.DisplayFor(Model=>Model.ProductImagePath)" />
             </div>
             <div class=" col-lg-8 col-md-8 col-sm-8"style="padding-bottom:6%">
-                <h3 style="color:#121E55;font-size:120%">Product Name:</h3> <h4 style="color:#353D6A;font-size:120%;font-family:lato">@Model.ProductName</h4>
-                <h3 style="color:#121E55;font-size:120%">Product Rate: </h3> <h4 style="color:#353D6A;font-size:120%;font-family:lato">Rs.@Model.ProductRate</h4>
-                <h4 class="btn btn-danger" style="border-radius: 20px 20px 20px 20px">@Html.ActionLink("Add to cart", "AddToCart", "Cart", new { id = Model.ProductId, @class = "LinkColor" }, null)</h4>
+                <h3 class="Products">Product Name:</h3> <h4 class="ProductFont">@Model.ProductName</h4>
+                <h3 class="Products">Product Rate: </h3> <h4 class="ProductFont">Rs.@Model.ProductRate</h4>
+                <h4 class="btn btn-danger ActionLink" >@Html.ActionLink("Add to cart", "AddToCart", "Cart", new { id = Model.ProductId, @class = "LinkColor" }, null)</h4>
             </div>
         </div>
 

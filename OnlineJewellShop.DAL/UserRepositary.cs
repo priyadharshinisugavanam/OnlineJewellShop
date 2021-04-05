@@ -1,10 +1,7 @@
 ﻿using OnlineJewellShop.Entity;
-using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Data;
 using System.Data.Entity;
-using System.Data.SqlClient;
 using System.Linq;
 
 namespace OnlineJewellShop.DAL
@@ -26,7 +23,8 @@ namespace OnlineJewellShop.DAL
         User Login(User user);
         IEnumerable<User> DisplayUser();
         User GetUser(string userId);
-        void UpdateUser(User user);
+        User GetMail(string userId);
+        int UpdateUser(User user);
         void DeleteUser(User user);
     }
     public class UserRepositary:IUserRepositary
@@ -43,7 +41,8 @@ namespace OnlineJewellShop.DAL
         {
             using (DbConnect dbConnect = new DbConnect())
             {
-                if (user.ConformPassword == user.Password)
+                
+                if (user.ConformPassword == user.Password )
                 { 
                     dbConnect.Data.Add(user);
                     dbConnect.SaveChanges();
@@ -92,13 +91,22 @@ namespace OnlineJewellShop.DAL
                 return User;
             }
         }
+        public User GetMail(string userId)
+        {
+            using (DbConnect dbConnect = new DbConnect())
+            {
+
+                User User = dbConnect.Data.Where(id => id.MailId == userId).SingleOrDefault();
+                return User;
+            }
+        }
         //Updating User with user object
-        public void UpdateUser(User user)
+        public int UpdateUser(User user)
         {
             using (DbConnect dbConnect = new DbConnect())
             {
                 dbConnect.Entry(user).State = EntityState.Modified;
-                dbConnect.SaveChanges();
+                return dbConnect.SaveChanges();
             }
         }
         //Deleting User with user object

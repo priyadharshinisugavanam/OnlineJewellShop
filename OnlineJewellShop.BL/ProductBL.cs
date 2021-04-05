@@ -1,19 +1,14 @@
 ﻿using OnlineJewellShop.DAL;
 using OnlineJewellShop.Entity;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace OnlineJewellShop.BL
 {
     public interface IProductBL
     {
-        void AddProduct(Product product);
+        int AddProduct(Product product);
         //void AddPaymentDB(Payment payment);
         IEnumerable<Product> DisplayProduct();
-        void UpdateProduct(Product product);
+        int UpdateProduct(Product product);
         Product GetProduct(int id);
         void DeleteProduct(Product product);
         IEnumerable<Product> GetProductCategory(int productNumber);
@@ -28,9 +23,9 @@ namespace OnlineJewellShop.BL
         {
             repositary = new ProductRepositary();
         }
-        public void AddProduct(Product product)
+        public int AddProduct(Product product)
         {
-            repositary.AddProduct(product);
+            return repositary.AddProduct(product);
         }
         public IEnumerable<Product> DisplayProduct()
         {
@@ -38,9 +33,9 @@ namespace OnlineJewellShop.BL
             return repositary.DisplayProduct();
         }
         
-        public void UpdateProduct(Product product)
+        public int UpdateProduct(Product product)
         {
-            repositary.UpdateProduct(product);
+             return repositary.UpdateProduct(product);
         }
         public void DeleteProduct(Product product)
         {

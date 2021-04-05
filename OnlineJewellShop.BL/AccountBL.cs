@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using OnlineJewellShop.Entity;
+﻿using OnlineJewellShop.Entity;
 using OnlineJewellShop.DAL;
 namespace OnlineJewellShop.BL
 {

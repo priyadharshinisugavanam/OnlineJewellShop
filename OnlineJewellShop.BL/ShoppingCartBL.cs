@@ -1,12 +1,7 @@
 ﻿using OnlineJewellShop.DAL;
 using OnlineJewellShop.Entity;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Web;
-
 namespace OnlineJewellShop.BL
 {
     public interface IShoppingCartBL

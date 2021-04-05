@@ -8,33 +8,49 @@
 <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
 <h2>Add Product Category</h2>
 
-@using (Html.BeginForm("AddProductCategory", "Admin", FormMethod.Post,new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("AddProductCategory", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
-<table cellpadding="10">
-    <tr>
-        <td>@Html.Label("Category Name")</td>
-        <td>
-            @Html.TextBoxFor(model => model.productCatogeryName)
-            @Html.ValidationMessageFor(model => model.productCatogeryName, "", new { @class = "danger" })
-        </td>
-    </tr>
-    <tr>
-        <td>
-            @Html.Label("Image")
-        </td>
-        <td>
-            <input type="file" id="productCategoryModel" name="ImageUpload" />
-        </td>
-    </tr>
+    <table cellpadding="10">
+        <tr>
+            <td>@Html.Label("Category Name")</td>
+            <td>
+                @Html.TextBoxFor(model => model.productCatogeryName, new { maxlength = "25" })
+                @Html.ValidationMessageFor(model => model.productCatogeryName, "", new { @class = "danger", })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.Label("Image")
+            </td>
+            <td>
+                <input type="file" id="productCategoryModel" name="ImageUpload" accept="image/png,image/jpg,image/jpeg" data-val-required="Image required" data-val="true" />
+                @Html.ValidationMessageFor(model => model.ImageUpload, "", new { @class = "danger" })
+               
+            </td>
+        </tr>
 
 
-    <tr>
-        <td>
+        <tr>
+            <td>
 
-            <input type="submit" />
-        </td>
-    </tr>
-</table>
+                <center><input type="submit"  /></center>
+            </td>
+        </tr>
+    </table>
+    <div>
+        @if (ViewBag.AddImage != null)
+        {
+            <script type="text/javascript">
+
+                      window.onload = function () {
+                        alert("@ViewBag.AddImage");
+                       };
+            </script>
+
+        }
+
+    </div>
+
 
 
 }

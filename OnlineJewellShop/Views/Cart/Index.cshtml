@@ -4,7 +4,7 @@
 }
 <script src="/Scripts/jquery-1.4.4.min.js"
         type="text/javascript"></script>
-<script type="text/javascript">
+@*<script type="text/javascript">
     $(function () {
         // Document.ready -> link up remove event handler
         $(".RemoveLink").click(function () {
@@ -28,67 +28,52 @@
             }
         });
     });
-</script>
+</script>*@
 <h3>
     <em>Review</em> your cart:
 </h3>
 
    
+<div class="containers">
+    <div class="rows" style="margin-bottom:100px">
+        <div>
+            @if (ViewBag.Total != null)
+            {
+            <h1>@ViewBag.Total</h1> 
+            }
+            else
+            {
 
-<div id="update-message">
-</div>
-<table>
-    <tr>
-        <th>
-            Product Name
-        </th>
-        <th>
-            Price (each)
-        </th>
-        <th>
-            Quantity
-        </th>
-        <th></th>
-        <th></th>
+                foreach (var item in Model.CartItems)
+                {
+
+                    item.Product.ProductImagePath = Path.Combine("~/ProductImages/", item.Product.ProductImagePath);
+                    <div class="col-lg-4 col-md-4 Contains ">
+                        <img class="ProductImage" src="@Url.Content(item.Product.ProductImagePath)" /><br />
+
+                        <h3>@Html.ActionLink(item.Product.ProductName, "ViewProduct", new { id = item.ProductId }, null)</h3>
+                        <h3 class="ProductDetailsfont">Rs. @item.Product.ProductRate and count= @item.Count</h3>
+
+                        <h2 class="btn btn-danger Symbol">@Html.ActionLink("Add", "AddToCart", new { id = item.ProductId })</h2>
+                        <h2 class="btn btn-danger  Symbol"> @Html.ActionLink("Remove", "RemoveFromCart", new { id = item.ProductId })</h2>
+                    </div>
+                }
+
+
+
+
+
+                <div class="col-lg-4 col-md-4 Contains ">
+                    <h3 class="ProductDetailsfont">  Total</h3>
+                    <h3 class="ProductDetailsfont"> @Model.CartTotal</h3>
+                    <h3 class="btn btn-danger Symbol">@Html.ActionLink("Checkout", "AddressAndPayment")</h3>
+                </div>
+            }
+        </div>
+
         
-    </tr>
-    @foreach (var item in Model.CartItems)
-    {
-        <tr >
-            <td>
-                @Html.ActionLink(item.Product.ProductName,"ViewProduct", new { id = item.ProductId }, null)
-            </td>
-            <td>
-                @item.Product.ProductRate
-            </td>
-            <td >
-                @item.Count
-            </td>
-            <td>
-                <h3 class="btn btn-danger" style="border-radius:20px 20px 20px 20px">@Html.ActionLink("+", "AddToCart", new { id = item.ProductId })</h3>  
-            </td>
-            <td>
-                <h3 class="btn btn-danger" style="border-radius:20px 20px 20px 20px"> @Html.ActionLink("-", "RemoveFromCart", new { id = item.ProductId })</h3>
-</td>
-           
-        </tr>
-    }
-    <tr>
-        <td>
-            Total
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td></td>
-        <td id="cart-total">
-            @Model.CartTotal
-        </td>
-    </tr>
-</table>
-<div>
-</div>
-<div>
-    <h3 class="btn btn-danger" style="border-radius:20px 20px 20px 20px">@Html.ActionLink("Checkout", "AddressAndPayment")</h3>
-</div>
+    </div>
+   </div>
+
+
+

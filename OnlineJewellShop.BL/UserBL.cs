@@ -1,19 +1,16 @@
 ﻿using OnlineJewellShop.DAL;
 using OnlineJewellShop.Entity;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace OnlineJewellShop.BL
 {
     public interface IUserBL
     {
         User GetUser(string id);
+        User GetMail(string id);
         IEnumerable<User> DisplayUser();
-        void UpdateUser(User users);
+        int UpdateUser(User users);
         void DeleteUser(User users);
+
     }
     public class UserBL:IUserBL
     {
@@ -27,14 +24,18 @@ namespace OnlineJewellShop.BL
         {
             return user.GetUser(id);
         }
+        public User GetMail(string id)
+        {
+            return user.GetMail(id);
+        }
 
         public IEnumerable<User> DisplayUser()
         {
             return user.DisplayUser();
         }
-        public void UpdateUser(User users)
+        public int UpdateUser(User users)
         {
-            user.UpdateUser(users);
+            return user.UpdateUser(users);
         }
         public void DeleteUser(User users)
         {

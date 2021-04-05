@@ -1,80 +1,258 @@
 ﻿body {
-    background-image: url('/Images/l.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.60),rgba(0, 0, 0, 0.60)),url('/Images/l.jpg');
     image-rendering: pixelated;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
     font-family: Arial, Helvetica, sans-serif;
-   
+ 
 }
+/*Login*/
+#login-form {
+    align-self: flex-start;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+}
+.LoginContainer {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    background-color: #3a3a3a;
+}
+#main-holder {
+    width: 50%;
+    height: 70%;
+    display: grid;
+    justify-items:center;
+    align-items: center;
+    background-color: rgba(255,255,255,0.5);
+    border-radius: 8px;
+    padding-bottom:10px;
+    padding-left:2px;
+    padding-right:2px;
+}
+
+
+.login-form-field {
+    border: none;
+    color: white;
+    width:50%;
+    border-bottom: 6px solid black;
+    margin-bottom: 10px;
+    border-color:black;
+    border-radius: 6px;
+    outline: none;
+    padding: 0px 0px 3px 3px;
+    padding-bottom:5px;
+    background-color: rgba(255,255,255,0.1);
+}
+.LoginFont {
+    color: #1b1d21;
+    text-shadow: gray;
+    font-size: 30Px;
+    font-family: Lato;
+    font-weight: bolder;
+    width:20%;
+    padding-bottom:10px;
+}
+.login-form-field::placeHolder{
+    color:black;
+    font-family:lato;
+    font-weight:bolder
+}
+#login-form-submit {
+    width: 56%;
+    padding: 7px;
+    border: none;
+    border-radius: 5px;
+    color: whitesmoke;
+    font-family: Lato;
+    font-weight: bold;
+    background-color: #262b33;
+    cursor: pointer;
+    outline: none;
+}
+#login-form-submits {
+    width: 40%;
+    padding: 7px;
+    border: none;
+    border-radius: 5px;
+    color: whitesmoke;
+    font-family: Lato;
+    font-weight: bold;
+    background-color: #262b33;
+    cursor: pointer;
+    outline: none;
+}
+
+/*Product details*/
+.ProductDetailsfont {
+    color: #121E55;
+    font-size: 100%;
+}
+/*Product details*/
+.ProductDetailImage {
+    width: 100%;
+    height: 80%;
+    border-radius: 10px 10px 10px 10px;
+}
+/*View Product category*/
+.ProductView {
+    height: 200px;
+    margin-top: 100px;
+    background-color: rgba(255,255,255,0.6);
+    padding-top: 2%;
+    margin-right: 80%;
+    padding-bottom: 4%
+}
+/*complete page*/
 .containers {
-    
     padding-left: 15px;
     margin-right: 600px;
-    padding-top:15px;
-    color:black;
+    padding-top: 15px;
+    color: black;
     background-color: rgba(255,255,255,0.6);
+    
 }
-.colors {
-    color: #29254f;
+/*index*/
+.Symbol {
+    border-radius: 10px 10px 10px 10px
 }
+/*View Product*/
+.ProductImageView {
+    height: 50%;
+    width: 50%;
+}
+/*View Product*/
+.ProductFont {
+    color: #353D6A;
+    font-size: 120%;
+    font-family: lato
+}
+/*view Product*/
+.Products {
+    color: #121E55;
+    font-size: 120%
+}
+/*editProduct catogery and edit product view product and view product category*/
+.image {
+    min-height:200px;
+    width:100%;
+}
+/*View Product */
+.ProductImage {
+    width: 30%;
+    height: 80%;
+    border-radius: 10px 10px 10px 10px;
+}
+/*AddTocart*/
+.CartImage {
+    width: 100%;
+    height: 80%;
+    border-radius: 10px 10px 10px 10px;
+}
+/*complete page*/
+.CompleteContainer {
+    height: 200px;
+    margin-top: 20px;
+    padding-bottom: 10px;
+    padding-left: 4px
+}
+/*View Product*/
+.ActionLink {
+    border-radius: 20px 20px 20px 20px;
+    padding-left: 3%;
+}
+/*Product Detail*/
+.Contain {
+    height: 200px;
+    margin-top: 100px;
+    background-color: rgba(255,255,255,0.6);
+    padding-top: 1%;
+    margin-right: 80%;
+    padding-bottom: 13%;
+    border-radius: 4px;
+    transition: transform 0.4s;
+}
+.Contains {
+    height: 100px;
+    margin-top: 20px;
+    padding-bottom: 30%;
+    padding-left: 4px
+}
+/*Product Detail*/
+.Contain:hover
+{ 
+        transform:translateY(-5px);
+
+}
+    /*complete page*/
+ .colors 
+ {
+        color: #29254f;
+ }
+    /*complete page*/
 .rows {
     margin-right: -10px;
     margin-left: -10px;
+    
 }
 
-.col-sm-4,
-.col-md-4,
-.col-lg-4,
-.col-sm-8,
-.col-md-8,
+/*complete page*/
 .col-lg-8
- {
+.col-md-8
+.col-sm-8
+.col-sm-4
+.col-md-4,
+.col-lg-4 {
     position: relative;
     min-height: 1px;
     padding-right: 15px;
     padding-left: 15px;
 }
+/*complete page*/
 .btn-danger {
-    color: #DCEEF8;
+    color:white;
     background-color: rgba(255,255,255,0.8);
     border-color: papayawhip;
     padding-bottom: 20%
 }
+/*AddTocart*/
+
+/*complete page */
 
     .btn {
         display: inline-block;
         margin-bottom: 0;
-        font-weight:bolder;
+        width:150px;
+        color:aqua;
+        height:20px;
         text-align: center;
-        white-space: nowrap;
-        vertical-align: middle;
-        -ms-touch-action: manipulation;
         touch-action: manipulation;
         cursor: pointer;
-        background-image: none;
         border: 1px solid transparent;
         padding: 6px 12px;
         font-size: 20px ;
-        line-height: 1.42857143;
         border-radius: 4px;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-        
     }
 
-    .danger {
+/*sign up login*/
+.danger
+{
         color: red;
-    }
+}
 
     .main {
         max-width: 2000px;
         margin: auto;
     }
 
+   /*View Product*/
     .row {
         margin: 8px.16px;
     }
@@ -126,21 +304,21 @@ h2 {
     color: #DCEEF8;
     font-size: 25px;
     text-align: left;
-    font-family: Arial, Helvetica, sans-serif;
-    text-shadow: 1px 3px grey;
+    font-family: lato;
+    
 }
 
     .Backgroud {
         text-align: right;
         background-color: rgba(255,255,255,0.3);
     }
-
+/*Master page*/
     .Burgermenu {
         font-size: 30px;
         cursor: pointer;
         color: white
     }
-
+/*Masterpage*/
 .Name {
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
@@ -149,7 +327,7 @@ h2 {
     left: 30%;
     color: #DCEEF8;
 }
-
+/*Masterpage*/
     .SideNav {
         display: none;
         height: 100%;
@@ -170,7 +348,7 @@ h2 {
         text-shadow: 3px 3px rgba(255,255,255,0.0);
         font-family: 'Times New Roman', Times, serif;
     }
-
+/*Master page*/
 .SideNav .LinkColor {
     padding: 30px 28px 8px 32px;
     color: #DCEEF8;
@@ -178,11 +356,11 @@ h2 {
     font-size: 25px;
     display: block;
 }
-
+/*Master page*/
         .SideNav .LinkColor:hover {
             color: #1384b0;
         }
-
+/*Master page*/
 .SideNav .closebtn {
     position: absolute;
     color: #DCEEF8;
@@ -192,13 +370,13 @@ h2 {
     margin-left: 50px;
     text-shadow: 3px 3px grey;
 }
-
+/*all */
     .LinkColor {
-        color: black;
+        color: white;
         font-family:Arial, Helvetica, sans-serif;
         font-size:20px;
     }
-
+/************************************************************************************common***********************************************************************/
 a {
     text-decoration: none;
     color: #353D6A;
@@ -249,7 +427,7 @@ a {
 
 th, td {
     padding: 15px;
-    background-color: rgba(255,255,255,0.8);
+    background-color: rgba(255,255,255,0.5);
     color: #29254f;
     font-family: Times New Roman;
     font-weight:bolder;
@@ -276,3 +454,14 @@ th, td {
         bottom: -9999px;
         z-index: -1;
     }
+    h5{
+        font-family:'Times New Roman';
+       
+    }
+input[type=text], input[type=password], input[type=email], input[type=number] {
+    border: 1px solid #ccc;
+    height: 20px;
+    padding: 6px 12px;
+    border-radius: 4px;
+    box-shadow: 0 5px 6px -6px black;
+}

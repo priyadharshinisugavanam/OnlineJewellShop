@@ -11,14 +11,14 @@
 {
 
     <table>
-        @Html.HiddenFor(Model=>Model.ProductId)
+        @Html.HiddenFor(Model => Model.ProductId)
         <tr>
             <td>
                 @Html.LabelFor(Model => Model.ProductName)
 
             </td>
             <td>
-                @Html.TextBoxFor(Model => Model.ProductName)
+                @Html.TextBoxFor(Model => Model.ProductName, new { maxlength = "25" })
                 @Html.ValidationMessageFor(model => model.ProductName, "", new { @class = "danger" })
             </td>
         </tr>
@@ -29,7 +29,7 @@
             </td>
             <td>
                 @Html.TextBoxFor(Model => Model.ProductRate)
-                @Html.ValidationMessageFor(model => model.ProductRate, "", new { @class = "danger" })
+                @Html.ValidationMessageFor(model => model.ProductRate, "", new { @class = "danger",@maxlength=8 })
             </td>
         </tr>
         <tr>
@@ -46,8 +46,8 @@
                 @Html.Label("Image")
             </td>
             <td>
-                <img style="min-height:200px;width:100%" src="~/ProductImages/@Html.DisplayFor(Model=>Model.ProductImagePath)" />
-                <input type="file" id="image" name="ImageUpload" />
+                <img class="image" src="~/ProductImages/@Html.DisplayFor(Model=>Model.ProductImagePath)" />
+                <input type="file" id="image" name="ImageUpload" accept="image/png,image/jpg,image/jpeg" />
             </td>
         </tr>
 
@@ -59,6 +59,19 @@
             </td>
         </tr>
     </table>
+    <div>
+        @if (ViewBag.EditImage != null)
+        {
+            <script type="text/javascript">
+
+                      window.onload = function () {
+                        alert("@ViewBag.EditImage");
+                       };
+            </script>
+
+        }
+
+    </div>
 
 }
 

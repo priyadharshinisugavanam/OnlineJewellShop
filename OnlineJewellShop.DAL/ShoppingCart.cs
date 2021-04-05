@@ -2,11 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Web;
-using System.Web.Mvc;
-
 namespace OnlineJewellShop.DAL
 {
     public interface IShoppingCart
@@ -32,22 +28,17 @@ namespace OnlineJewellShop.DAL
         public const string CartSessionKey = "CartId";
         public static ShoppingCart GetCart(HttpContextBase context)
         {
-            var cart = new ShoppingCart();
+            ShoppingCart cart = new ShoppingCart();
             cart.ShoppingCartId = cart.GetCartId(context);
             return cart;
         }
         // Helper method to simplify shopping cart calls
-        public static ShoppingCart GetCart(Controller controller)
-        {
-            return GetCart(controller.HttpContext);
-        }
         public void AddToCart(Product product)
-        {
+         {
             // Get the matching cart and album instances
             var cartItem = storeDB.Carts.SingleOrDefault(
                 c => c.CartId == ShoppingCartId
                 && c.ProductId == product.ProductId);
-
             if (cartItem == null)
             {
                 // Create a new cart item if no cart item exists

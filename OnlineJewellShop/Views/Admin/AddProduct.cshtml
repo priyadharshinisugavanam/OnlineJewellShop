@@ -13,54 +13,75 @@
 @using (Html.BeginForm("AddProduct", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
 
-<table>
+    <table>
+
+        <tr>
+            <td>
+                @Html.LabelFor(Model => Model.ProductName)
+
+            </td>
+            <td>
+                @Html.TextBoxFor(Model => Model.ProductName, new { maxlength = "25" })
+                @Html.ValidationMessageFor(model => model.ProductName, "", new { @class = "danger" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.ProductRate)
+
+            </td>
+            <td>
+                @Html.TextBoxFor(Model => Model.ProductRate)
+                @Html.ValidationMessageFor(model => model.ProductRate, "", new { @class = "danger" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.ProductCatogeries)
+            </td>
+            <td>
+                @Html.DropDownListFor(model => model.ProductCatogeryId, (IEnumerable<SelectListItem>)ViewBag.ProductCategories, "select category")
+                @Html.ValidationMessageFor(model => model.ProductCatogeryId, "", new { @class = "danger" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.Label("Image")
+            </td>
+            <td>
+                <input type="file" id="image" name="ImageUpload" accept="image/png,image/jpg,image/jpeg" data-val-required="Image required" data-val="true" />
+                @Html.ValidationMessageFor(model => model.ImageUpload, "", new { @class = "danger" })
+                
+            </td>
+            
+                
+            
+            
+        </tr>
+
+
+        <tr>
+            <td>
+
+                <input type="submit" />
+            </td>
+        </tr>
+    </table>
+    <div>
+        @if (ViewBag.Image != null)
+        {
+            <script type="text/javascript">
+
+                      window.onload = function () {
+                        alert("@ViewBag.Image");
+                       };
+            </script>
+
+        }
+
+    </div>
     
-    <tr>
-        <td>
-            @Html.LabelFor(Model => Model.ProductName)
-
-        </td>
-        <td>
-            @Html.TextBoxFor(Model => Model.ProductName)
-            @Html.ValidationMessageFor(model => model.ProductName, "", new { @class = "danger" })
-        </td>
-    </tr>
-    <tr>
-        <td>
-            @Html.LabelFor(model => model.ProductRate)
-
-        </td>
-        <td>
-            @Html.TextBoxFor(Model => Model.ProductRate)
-            @Html.ValidationMessageFor(model => model.ProductRate, "", new { @class = "danger" })
-        </td>
-    </tr>
-    <tr>
-        <td>
-            @Html.LabelFor(model => model.ProductCatogeries)
-        </td>
-        <td>
-            @Html.DropDownListFor(model => model.ProductCatogeryId, (IEnumerable<SelectListItem>)ViewBag.ProductCategories, "select category")
-            @Html.ValidationMessageFor(model => model.ProductCatogeryId, "", new { @class = "danger" })
-        </td>
-    </tr>
-    <tr>
-        <td>
-            @Html.Label("Image")
-        </td>
-        <td>
-           <input type="file" id="image" name="ImageUpload" />
-        </td>
-    </tr>
-
-
-    <tr>
-        <td>
-
-            <input type="submit" />
-        </td>
-    </tr>
-</table>
+    
 
 }
 

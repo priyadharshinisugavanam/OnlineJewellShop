@@ -33,6 +33,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -42,6 +43,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AutoMapper, Version=6.2.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
@@ -110,7 +112,9 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\OnlineJewellShop.css" />
+    <Content Include="Content\OnlineJewellShopValidation.js" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\validation.js" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -137,6 +141,9 @@
     <Content Include="Images\moon.jpg" />
     <Content Include="Images\perl.jpg" />
     <Content Include="Images\pexels-photo-810036.jpeg" />
+    <Content Include="Images\profile-user.png" />
+    <Content Include="Images\Profile.jpg" />
+    <Content Include="Images\Profile.png" />
     <Content Include="Images\ring.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -200,16 +207,15 @@
     <Content Include="Views\Error\NotUnique.cshtml" />
     <Content Include="Views\Account\SignUp.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\Account\Partial.cshtml" />
     <Content Include="Views\Error\Error.cshtml" />
     <Content Include="Views\Admin\ViewProductCategory.cshtml" />
     <Content Include="Views\Cart\ViewProduct.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
     <Content Include="Views\Cart\AddressAndPayment.cshtml" />
     <Content Include="Views\Cart\Complete.cshtml" />
-    <Content Include="Views\Cart\PaymentDetails.cshtml" />
     <Content Include="Views\Cart\Payment.cshtml" />
     <Content Include="Views\Cart\Final.cshtml" />
+    <Content Include="Views\Account\ChangePassword.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

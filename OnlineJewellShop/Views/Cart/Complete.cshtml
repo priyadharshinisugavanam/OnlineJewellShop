@@ -11,8 +11,8 @@
         @foreach (OnlineJewellShop.Entity.OrderDetail product in Model)
         {
             product.Product.ProductImagePath = Path.Combine("~/ProductImages/", product.Product.ProductImagePath);
-            <div class="col-lg-4 col-md-4 " style="height:200px;margin-top:20px;padding-bottom:10px;padding-left:4px">
-                <img style="width:30%;height:80%;border-radius:10px 10px 10px 10px" src="@Url.Content(product.Product.ProductImagePath)" />
+            <div class="col-lg-4 col-md-4 CompleteContainer" >
+                <img class="ProductImage" src="@Url.Content(product.Product.ProductImagePath)" />
                 <h3 class="colors" style="margin-bottom:4px">@product.Product.ProductName</h3>
                 <h3 class="colors" style="margin-top:2px">Rs.@product.Product.ProductRate</h3>
 
@@ -20,7 +20,7 @@
         }
         
 
-    <div class="col-lg-4 col-md-4 " style="height:200px;margin-top:50px;padding-bottom:10px;padding-left:4px">
+    <div class="col-lg-4 col-md-4 CompleteContainer" >
         <h3 class="colors">Grand Total:</h3><h3 class="colors">@Model.FirstOrDefault().Order.Total</h3>
         <h3 class="colors">
             Enjoy Shopping in SM<br />

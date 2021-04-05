@@ -9,7 +9,7 @@
 <body>
     
         
-    <header> <h1 class="Name">Sri Mathre Jewellery</h1></header>
+    <header> <h1 class="Name">Sri Mathre Jewellery </h1></header>
        
    
 
@@ -40,6 +40,8 @@
         @if (HttpContext.Current.User.IsInRole("User"))
         {
             @Html.ActionLink("Categories", "ViewProductCategory", "User", "", new { @class = "LinkColor" })
+            @Html.ActionLink("Profile", "ChangePassword", "Account", "", new { @class = "LinkColor" })
+            @Html.ActionLink("My Cart", "Index", "Cart", "", new { @class = "LinkColor" })
         }
     </div>
     <span class="Burgermenu" onclick="openNav()">

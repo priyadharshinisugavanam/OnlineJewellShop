@@ -1,4 +1,5 @@
 ﻿using OnlineJewellShop.BL;
+using OnlineJewellShop.DAL;
 using OnlineJewellShop.Entity;
 using OnlineJewellShop.Models;
 using System;
@@ -14,9 +15,11 @@ namespace OnlineJewellShop.Controllers
     public class AccountController : Controller
     {
         IAccountBL accountBL;
+        IUserBL userBL;
         public AccountController()
         {
             accountBL = new AccountBL();
+            userBL = new UserBL();
         }
         public ActionResult Index()
         {
@@ -33,23 +36,34 @@ namespace OnlineJewellShop.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult SignUp(UserEntityModel userEntity)
         {
+            DbConnect dbConnect = new DbConnect();
             try
             {
                 if (ModelState.IsValid)
                 {
-                    if (userEntity.ConformPassword == userEntity.Password)
+                    if (userEntity.ConformPassword == userEntity.Password )
                     {
-                        var user = AutoMapper.Mapper.Map<UserEntityModel, User>(userEntity);
-                        //UserDetails userDetails = new UserDetails();
-                        //userDetails.UserID = userEntity.UserID;
-                        //userDetails.Password = userEntity.Password; 
-                        //userDetails.phoneNumber = userEntity.PhoneNumber;
-                        //userDetails.ConformPassword = userEntity.ConformPassword;
-                        //userDetails.MailId = userEntity.MailId;
+                        
+                        var mail = dbConnect.Data.Where(x => x.MailId == userEntity.MailId).SingleOrDefault();
+                        if (mail == null) { 
+
+                                var user = AutoMapper.Mapper.Map<UserEntityModel, User>(userEntity);
+                                //UserDetails userDetails = new UserDetails();
+                                //userDetails.UserID = userEntity.UserID;
+                                //userDetails.Password = userEntity.Password; 
+                                //userDetails.phoneNumber = userEntity.PhoneNumber;
+                                //userDetails.ConformPassword = userEntity.ConformPassword;
+                                //userDetails.MailId = userEntity.MailId;
 
 
-                        accountBL.SignUp(user);
-                        return RedirectToAction("Login");
+                                accountBL.SignUp(user);
+                                return RedirectToAction("Login");
+                            }
+                        
+                        else
+                        {
+                            ViewBag.Message = "This mail id is already used";
+                        }
                     }
                     else
                     {
@@ -116,8 +130,8 @@ namespace OnlineJewellShop.Controllers
         {
             //AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
             FormsAuthentication.SignOut();
-            return RedirectToAction("Index", "Home");
-        }
+            return RedirectToAction("Login");
+        } 
 
         //partial view
         public ActionResult Partial()
@@ -126,8 +140,32 @@ namespace OnlineJewellShop.Controllers
                 return PartialView();
            
         }
+        [HttpGet]
+        public ActionResult ChangePassword()
+        {
+            string user = HttpContext.User.Identity.Name;
+            User users = userBL.GetMail(user);
+            return View(users);
 
-
-
+        }
+        [HttpPost]
+        public ActionResult ChangePassword(User user)
+        {
+            try
+            {
+                
+                int result=userBL.UpdateUser(user);
+                if (result > 0)
+                {
+                    ViewBag.PasswordChange = "Profile Updated";
+                }
+                
+                return View(user);
+            }
+            catch
+            {
+                return RedirectToAction("Error", "Error");
+            }
+        }
     }
 }

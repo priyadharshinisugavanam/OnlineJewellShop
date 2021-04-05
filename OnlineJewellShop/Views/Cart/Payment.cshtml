@@ -14,7 +14,7 @@
     <tr>
         <td>@Html.LabelFor(Model => Model.CardHolderName)</td>
         <td>
-            @Html.TextBoxFor(model => model.CardHolderName)
+            @Html.TextBoxFor(model => model.CardHolderName,new { maxlength = "35" })
             @Html.ValidationMessageFor(model => model.CardHolderName, "", new { @class = "danger" })
         </td>
         <td style="color:red"></td>
@@ -22,7 +22,7 @@
     <tr>
         <td>@Html.LabelFor(Model => Model.CardNumber)</td>
         <td>
-            @Html.TextBoxFor(model => model.CardNumber)
+            @Html.TextBoxFor(model => model.CardNumber,new { maxlength = "15",minlength="12" })
             @Html.ValidationMessageFor(model => model.CardNumber, "", new { @class = "danger" })
         </td>
         <td style="color:red">
@@ -36,7 +36,7 @@
     <tr>
         <td>@Html.LabelFor(Model => Model.Cvv)</td>
         <td>
-            @Html.TextBoxFor(model => model.Cvv)
+            @Html.TextBoxFor(model => model.Cvv,new { maxlength = "3" })
             @Html.ValidationMessageFor(model => model.Cvv, "", new { @class = "danger" })
         </td>
         <td style="color:red">
@@ -45,7 +45,7 @@
     <tr>
         <td>@Html.Label("Valid Date")</td>
         <td>
-            @Html.TextBoxFor(model => model.ValidDate)
+            @Html.TextBoxFor(model => model.ValidDate,new { maxlength = "5" })
             @Html.ValidationMessageFor(model => model.ValidDate, "", new { @class = "danger" })
         </td>
         <td style="color:red">
